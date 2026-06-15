@@ -1,8 +1,21 @@
 ## Sobre a Petzo
 
-A Petzo é um ecommerce de itens pets. Em nosso app você encontra:
+O presente projeto foi desenvolvido como atividade da disciplina Ferramentas Web e UX, com o objetivo de aplicar conceitos de experiência do usuário (UX), design de interface (UI), prototipação e desenvolvimento de soluções digitais centradas no usuário.
 
-- Rações, acessórios, promoções etc.;
-- Site com entrega e poder de compra tudo em um só lugar!;
-- Ste fácil de ser entendido, bem estrutuado e com uma identidade visual própia;
-- Grupo composto por: Ana Amaral, Eduardo Oliveira, João Medeiros, Kamila Santos e Lucas Natanael;
+A proposta consiste na criação de uma interface moderna, intuitiva e acessível, buscando proporcionar uma experiência agradável durante a navegação e utilização do sistema.
+
+# Objetivos
+
+# Objetivo Geral
+
+Desenvolver um protótipo funcional que atenda às necessidades dos usuários por meio da aplicação de boas práticas de design e usabilidade.
+
+# Objetivos Específico
+
+- Aplicar conceitos de UX Design;;
+- Desenvolver wireframes e protótipos;;
+- Definir fluxo de navegação;
+- Criar interfaces responsivas;
+- Melhorar a experiência do usuário;
+- Aplicar princípios de acessibilidade;
+- Validar a proposta de solução.
