@@ -24,7 +24,7 @@ body{
 .login-card{
     background:white;
     border-radius:25px 25px 0 0;
-    padding:30px 30px 100px 30px; 
+    padding:30px 30px 35px 30px; 
     margin-top:50px;
 }
 
@@ -37,7 +37,7 @@ body{
 .login-card form{
     display:flex;
     flex-direction:column;
-    gap:15px;
+    gap:5px;
 }
 
 input{
@@ -47,9 +47,18 @@ input{
     border-radius:6px;
 }
 
+label{
+    color:#2A7F7F;
+    font-size:14px;
+    font-weight: bold;
+}
+
 a{
     text-decoration:none;
     color:#2A7F7F;
+    font-weight: bold;
+    text-align:right;
+    margin-bottom:15px;
 }
 
 button{
@@ -64,9 +73,11 @@ button[type="submit"]{
     color:white;
 }
 
-.separator{
+.separador{
     text-align:center;
     margin:15px 0;
+    font-weight: bold;
+    color:#2A7F7F;
 }
 
 .google-btn,
