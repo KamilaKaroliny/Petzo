@@ -59,3 +59,53 @@ label{
     font-size:14px;
     font-weight: bold;
 }
+
+a{
+    text-decoration:none;
+    color:#2A7F7F;
+    font-weight: bold;
+    text-align:right;
+    margin-bottom:15px;
+}
+
+p{
+    text-align:center;
+    color:#2A7F7F;  
+}
+
+button{
+    height:45px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button[type="submit"]{
+    background:#4CC7C0;
+    color:white;
+}
+
+.separador{
+    text-align:center;
+    margin:15px 0;
+    font-weight: bold;
+    color:#2A7F7F;
+}
+
+.google-btn,
+.apple-btn{
+    width:100%;
+    margin-bottom:10px;
+    background:white;
+    border:1px solid #2A7F7F;
+    color:#2A7F7F;
+    align-items:center;
+    display:flex;
+    justify-content:center;
+}
+
+.google-btn img,
+.apple-btn img{
+    width:20px;
+    margin-right:10px;
+}
