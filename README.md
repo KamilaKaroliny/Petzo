@@ -6,11 +6,11 @@ A proposta consiste na criação de uma interface moderna, intuitiva e acessíve
 
 # Objetivos
 
-*Objetivo Geral*
+**Objetivo Geral**
 
 Desenvolver um protótipo funcional que atenda às necessidades dos usuários por meio da aplicação de boas práticas de design e usabilidade.
 
-*Objetivos Específicos*
+**Objetivos Específicos**
 
 - Aplicar conceitos de UX Design;;
 - Desenvolver wireframes e protótipos;;
@@ -46,41 +46,41 @@ Durante o desenvolvimento foram utilizadas as seguintes etapas:
 
 # Estrutura do Projeto
 
-*Tela Inicial*
+**Tela Inicial**
 
 Responsável por apresentar o sistema ao usuário e permitir acesso às principais funcionalidades.
 
-*Tela de Cadastro*
+**Tela de Cadastro**
 
 Permite o registro de novos usuários por meio do preenchimento de informações básicas.
 
-*Tela de Login*
+**Tela de Login**
 
 Realiza a autenticação dos usuários cadastrados.
 
-*Dashboard*
+**Dashboard**
 
 Apresenta informações relevantes e recursos disponíveis após o login.
 
-*Perfil do Usuário*
+**Perfil do Usuário**
 
 Apresenta informações relevantes e recursos disponíveis após o login.
 
 # Princípios 
 
-*Usabilidade*
+**Usabilidade**
 
 A interface foi projetada para ser simples e intuitiva, reduzindo a curva de aprendizado.
 
-*Consistência* 
+**Consistência** 
 
 Os elementos visuais seguem um padrão uniforme em todas as telas.
 
-*Feedback ao Usuário* 
+**Feedback ao Usuário** 
 
 O sistema fornece mensagens e indicadores visuais para informar ações realizadas.
 
-*Acessibilidade* 
+**Acessibilidade** 
 
 Foram considerados aspectos como contraste, tamanho de fontes e organização visual.
 
@@ -100,7 +100,7 @@ Espera-se que a solução desenvolvida:
 
 # Informações Gerais
 
-*Diciplina* 
+**Alunos** 
 
 - Ana Luiza do Amaral;
 - Eduardo Felipe de Oliveira;
@@ -108,15 +108,15 @@ Espera-se que a solução desenvolvida:
 - Kamila Karoliny dos Santos;
 - Lucas Natanael de Oliveira
 
-*Diciplina* 
+**Diciplina**
 
 Ferramentas Web e UX.
 
-*Professor* 
+**Professor**
 
 CLAUDINEI DIAS.
 
-*Instituição* 
+**Instituição** 
 
 Católica Santa Catarina.
 
