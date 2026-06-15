@@ -8,9 +8,54 @@ body{
 
 .container{
     width:390px;
+    height:917px;
+}
+
+.logo-area{
+    text-align:center;
+    margin-bottom:40px;
+    margin-top:60px;
 }
 
 .logo-area img{
     width:200px;
-    display:block;
+}
+.cadastro-card{
+    background:white;
+    border-radius:25px 25px 0 0;
+    padding:30px 30px 70px 30px; 
+    margin-top:50px;
+}
+
+.cadastro-card h2{
+    text-align:center;
+    color:#2A7F7F;
+    margin-bottom:25px;
+}
+
+.cadastro-card form{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+}
+
+input{
+    padding:12px;
+    border:none;
+    background:#f2f2f2;
+    border-radius:6px;
+}
+
+
+label{
+    color:#2A7F7F;
+    font-size:14px;
+    font-weight: bold;
 }
