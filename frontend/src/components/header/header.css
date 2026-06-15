@@ -1,0 +1,64 @@
+.header{
+
+    background:#9ce6e2;
+
+    padding:15px;
+}
+
+.header-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.logo{
+
+    height:45px;
+}
+
+.menu-btn{
+
+    background:none;
+
+    border:none;
+
+    font-size:22px;
+
+    cursor:pointer;
+}
+
+.search-box{
+
+    margin-top:15px;
+
+    background:#63c9c3;
+
+    border-radius:20px;
+
+    padding:8px 12px;
+
+    display:flex;
+
+    align-items:center;
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    background:transparent;
+
+    outline:none;
+
+    color:white;
+}
+
+.search-box input::placeholder{
+
+    color:white;
+}

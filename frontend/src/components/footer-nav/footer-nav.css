@@ -1,0 +1,20 @@
+.footer-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    width:100%;
+
+    max-width:390px;
+
+    background:#9ce6e2;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    padding:12px;
+
+    font-size:22px;
+}
