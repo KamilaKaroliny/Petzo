@@ -1,0 +1,16 @@
+body{
+    background:#9EDFD9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:390px;
+}
+
+.logo-area img{
+    width:200px;
+    display:block;
+}
