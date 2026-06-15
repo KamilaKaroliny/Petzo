@@ -19,3 +19,33 @@ body{
     width:180px;
 }
 
+.login-card{
+    background:white;
+    border-radius:25px 25px 0 0;
+    padding:30px;
+}
+
+
+.login-card h2{
+    text-align:center;
+    color:#2A7F7F;
+    margin-bottom:25px;
+}
+
+
+.login-card form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+
+input{
+    padding:12px;
+    border:none;
+    background:#f2f2f2;
+    border-radius:6px;
+}
+
+
+
