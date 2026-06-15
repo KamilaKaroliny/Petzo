@@ -61,6 +61,11 @@ a{
     margin-bottom:15px;
 }
 
+p{
+    text-align:center;
+    color:#2A7F7F;  
+}
+
 button{
     height:45px;
     border:none;
@@ -85,5 +90,15 @@ button[type="submit"]{
     width:100%;
     margin-bottom:10px;
     background:white;
-    border:1px solid #ddd;
+    border:1px solid #2A7F7F;
+    color:#2A7F7F;
+    align-items:center;
+    display:flex;
+    justify-content:center;
+}
+
+.google-btn img,
+.apple-btn img{
+    width:20px;
+    margin-right:10px;
 }
