@@ -10,6 +10,12 @@ produtos.find(
 p => p.id === idProduto
 );
 
+
+if(!produto){
+    alert("Produto não encontrado");
+    history.back();
+}
+
 const nome =
 document.getElementById(
 "nomeProduto"
@@ -205,5 +211,5 @@ function abrirProduto(id){
     id
     );
 
-    location.reload();
+    location.href = "produto.html";
 }

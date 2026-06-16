@@ -1,120 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produto</title>
 
-<head>
- <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/produto.css">
-<meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/produto.css" />
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <script src="../data/produtos.js"></script>
+    <script defer src="../js/produto.js"></script>
+  </head>
 
-<title>Produto</title>
+  <body>
+    <header>
+      <button class="voltar" onclick="history.back()">←</button>
 
-<link rel="stylesheet"
-href="../src/css/global.css">
+      <img src=".././assets/images/logo.png" class="logo" />
+    </header>
 
-<link rel="stylesheet"
-href="../src/css/produto.css">
+    <main>
+      <h2 id="nomeProduto"></h2>
 
-<script src="../src/data/produtos.js"></script>
+      <div class="produto-container">
+        <img id="imagemPrincipal" class="imagem-principal" />
 
-<script defer
-src="../src/js/produto.js">
-</script>
+        <div id="miniaturas" class="miniaturas"></div>
+      </div>
 
-</head>
+      <div class="info">
+        <h3 id="precoProduto"></h3>
 
-<body>
+        <p id="descricaoProduto"></p>
+      </div>
 
-<header>
+      <div class="frete">
+        <input type="text" id="cep" placeholder="CEP" />
 
-<button
-class="voltar"
-onclick="history.back()">
+        <button id="btnFrete">Calcular Frete</button>
+      </div>
 
-←
+      <p id="resultadoFrete"></p>
 
-</button>
+      <div class="acoes">
+        <button id="btnCarrinho">🛒 Adicionar ao Carrinho</button>
 
-<img
-src="../src/assets/images/logo/logo.png"
-class="logo">
+        <button id="btnFavorito">❤️</button>
+      </div>
 
-</header>
+      <h3 class="titulo-relacionados">Produtos Relacionados</h3>
 
-<main>
-
-<h2 id="nomeProduto"></h2>
-
-<div class="produto-container">
-
-    <img
-    id="imagemPrincipal"
-    class="imagem-principal">
-
-    <div
-    id="miniaturas"
-    class="miniaturas">
-    </div>
-
-</div>
-
-<div class="info">
-
-    <h3 id="precoProduto"></h3>
-
-    <p id="descricaoProduto"></p>
-
-</div>
-
-<div class="frete">
-
-    <input
-    type="text"
-    id="cep"
-    placeholder="CEP">
-
-    <button id="btnFrete">
-
-        Calcular Frete
-
-    </button>
-
-</div>
-
-<p id="resultadoFrete"></p>
-
-<div class="acoes">
-
-    <button id="btnCarrinho">
-
-        🛒 Adicionar ao Carrinho
-
-    </button>
-
-    <button id="btnFavorito">
-
-        ❤️
-
-    </button>
-
-</div>
-
-<h3 class="titulo-relacionados">
-
-Produtos Relacionados
-
-</h3>
-
-<div
-id="produtosRelacionados"
-class="relacionados">
-
-</div>
-
-</main>
-
-</body>
+      <div id="produtosRelacionados" class="relacionados"></div>
+    </main>
+  </body>
 </html>

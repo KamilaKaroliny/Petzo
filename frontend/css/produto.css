@@ -1,228 +1,241 @@
-
-body{
-    background:#F5F5F5;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-header{
-
-    background:#9EDFD9;
-
-    padding:15px;
-
+body{
+    background:#72C8C5;
     display:flex;
+    justify-content:center;
+    min-height:100vh;
+}
 
+main{
+    width:100%;
+    max-width:412px;
+    background:white;
+    min-height:100vh;
+    padding:20px;
+    border-radius:30px 30px 0 0;
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    max-width:412px;
+    background:#72C8C5;
+    padding:20px;
+    display:flex;
     align-items:center;
-
-    gap:20px;
+    gap:15px;
 }
 
 .logo{
     width:120px;
+    margin:auto;
+    margin-right:70px;
 }
 
 .voltar{
-
+    width:42px;
+    height:42px;
     border:none;
-
-    background:white;
-
-    width:40px;
-
-    height:40px;
-
     border-radius:50%;
-
+    background:white;
     cursor:pointer;
+    font-size:18px;
+    transition:.3s;
 }
 
-main{
-    padding:20px;
+.voltar:hover{
+    transform:scale(1.05);
 }
+
+/* TITULO */
 
 #nomeProduto{
-
     text-align:center;
-
-    color:#2A7F7F;
-
+    color:#333;
     margin-bottom:20px;
+    font-size:24px;
 }
 
+/* IMAGEM */
+
 .produto-container{
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 }
 
 .imagem-principal{
-
     width:280px;
-
     height:280px;
-
     object-fit:contain;
-
-    background:white;
-
-    border:1px solid #ddd;
+    background:#f7f7f7;
+    border-radius:20px;
+    padding:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
 .miniaturas{
-
     display:flex;
-
+    justify-content:center;
     gap:10px;
-
     margin-top:15px;
 }
 
 .miniaturas img{
-
     width:70px;
-
     height:70px;
-
     object-fit:contain;
-
-    border:1px solid #ddd;
-
+    background:#f7f7f7;
+    border-radius:12px;
+    padding:5px;
     cursor:pointer;
-
-    background:white;
+    transition:.3s;
 }
 
+.miniaturas img:hover{
+    border:2px solid #72C8C5;
+}
+
+/* INFO */
+
 .info{
-    margin-top:20px;
+    margin-top:25px;
 }
 
 #precoProduto{
-
-    color:#2A7F7F;
-
-    font-size:28px;
+    color:#72C8C5;
+    font-size:34px;
+    font-weight:bold;
 }
 
 #descricaoProduto{
-
-    margin-top:10px;
-
+    margin-top:12px;
     color:#666;
+    line-height:1.6;
 }
 
+/* FRETE */
+
 .frete{
-
     display:flex;
-
     gap:10px;
-
     margin-top:25px;
 }
 
 .frete input{
-
     flex:1;
-
-    padding:10px;
+    height:45px;
+    border:none;
+    background:#f2f2f2;
+    border-radius:10px;
+    padding:0 12px;
 }
 
 .frete button{
-
-    padding:10px 20px;
-
     border:none;
-
-    background:#4CC7C0;
-
+    border-radius:10px;
+    background:#72C8C5;
     color:white;
-
+    padding:0 16px;
     cursor:pointer;
 }
 
 #resultadoFrete{
-
     margin-top:10px;
-
-    color:#2A7F7F;
-
+    color:#72C8C5;
     font-weight:bold;
 }
 
+/* BOTOES */
+
 .acoes{
-
-    margin-top:25px;
-
     display:flex;
-
     gap:10px;
+    margin-top:25px;
 }
 
 #btnCarrinho{
-
     flex:1;
-
+    height:50px;
     border:none;
-
-    padding:15px;
-
-    background:#4CC7C0;
-
+    border-radius:12px;
+    background:#72C8C5;
     color:white;
-
+    font-size:15px;
+    font-weight:bold;
     cursor:pointer;
 }
 
 #btnFavorito{
-
-    width:60px;
-
+    width:50px;
     border:none;
-
+    border-radius:12px;
+    background:#f2f2f2;
     cursor:pointer;
-
-    font-size:20px;
 }
 
+/* RELACIONADOS */
+
 .titulo-relacionados{
-
     margin-top:35px;
-
-    color:#2A7F7F;
+    color:#333;
 }
 
 .relacionados{
-
     display:grid;
-
-    grid-template-columns:
-
-    repeat(3,1fr);
-
-    gap:10px;
-
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
     margin-top:15px;
 }
 
 .relacionado{
-
     background:white;
-
-    border:1px solid #ddd;
-
-    padding:10px;
-
-    cursor:pointer;
-
+    border-radius:15px;
+    padding:12px;
     text-align:center;
+    cursor:pointer;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
 .relacionado img{
-
     width:100%;
-
-    height:80px;
-
+    height:100px;
     object-fit:contain;
+}
+
+.relacionado p{
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:412px){
+
+    header{
+        max-width:100%;
+    }
+
+    main{
+        max-width:100%;
+        border-radius:25px 25px 0 0;
+    }
+
+    .imagem-principal{
+        width:100%;
+        max-width:280px;
+        height:auto;
+    }
+
+    .relacionados{
+        grid-template-columns:1fr 1fr;
+    }
+
 }
