@@ -1,56 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Produto</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petz - Bolinha Porta Petiscos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/produto.css">
+</head>
+<body>
 
-    <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/produto.css" />
+    <div class="app-container">
+        <header>
+            <div class="back-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="logo">
+                Petz<i class="fa-solid fa-paw" style="font-size: 16px;"></i>
+            </div>
+            <div style="width: 35px;"></div> </header>
 
-    <script src="../data/produtos.js"></script>
-    <script defer src="../js/produto.js"></script>
-  </head>
+        <main class="product-container">
+            
+            <div class="product-gallery">
+                <div class="main-image-box">
+                    <img src="../assets/images" alt="Bolinha porta petiscos">
+                </div>
+                
+                <div class="gallery-footer">
+                    <div class="pagination-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="wishlist-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                </div>
+            </div>
 
-  <body>
-    <header>
-      <button class="voltar" onclick="history.back()">←</button>
+            <div class="product-details">
+                <h1 class="product-title">Bolinha porta petiscos</h1>
+                <div class="product-price">R$14,90</div>
+                
+                <p class="product-description">
+                    Diversão e estímulo para o seu pet todos os dias. Feita com material 
+                    resistente e seguro, libera petiscos enquanto o animal brinca, incentivando 
+                    o raciocínio. Fácil de usar e perfeita para momentos de entretenimento.
+                </p>
 
-      <img src=".././assets/images/logo.png" class="logo" />
-    </header>
+                <div class="shipping-box">
+                    <div class="cep-input-wrapper">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" name="cep">
+                    </div>
+                    <button class="btn-shipping">Calcular frete</button>
+                </div>
 
-    <main>
-      <h2 id="nomeProduto"></h2>
+                <button class="btn-add-to-cart">
+                    <i class="fa-solid fa-circle-plus"></i> Adicionar ao Carrinho
+                </button>
+            </div>
 
-      <div class="produto-container">
-        <img id="imagemPrincipal" class="imagem-principal" />
+        </main>
 
-        <div id="miniaturas" class="miniaturas"></div>
-      </div>
+        <section class="recommendations">
+            <h2 class="rec-title">Encontre mais brinquedos!</h2>
+            
+            <div class="rec-grid">
+                <div class="rec-item"><img src="../assets/images/brinquedos/" alt="Brinquedo 1"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item2.png" alt="Brinquedo 2"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item3.png" alt="Brinquedo 3"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item4.png" alt="Brinquedo 4"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item5.png" alt="Brinquedo 5"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item6.png" alt="Brinquedo 6"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item7.png" alt="Brinquedo 7"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item8.png" alt="Brinquedo 8"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item9.png" alt="Brinquedo 9"></div>
+                <div class="rec-item"><img src="../assets/images/brinquedos/item10.png" alt="Brinquedo 10"></div>
+            </div>
+        </section>
 
-      <div class="info">
-        <h3 id="precoProduto"></h3>
+        <div class="bottom-accent-bar"></div>
 
-        <p id="descricaoProduto"></p>
-      </div>
+    </div>
 
-      <div class="frete">
-        <input type="text" id="cep" placeholder="CEP" />
-
-        <button id="btnFrete">Calcular Frete</button>
-      </div>
-
-      <p id="resultadoFrete"></p>
-
-      <div class="acoes">
-        <button id="btnCarrinho">🛒 Adicionar ao Carrinho</button>
-
-        <button id="btnFavorito">❤️</button>
-      </div>
-
-      <h3 class="titulo-relacionados">Produtos Relacionados</h3>
-
-      <div id="produtosRelacionados" class="relacionados"></div>
-    </main>
-  </body>
+</body>
 </html>
