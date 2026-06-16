@@ -2,105 +2,66 @@
 <html lang="pt-BR">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Petz - Home</title>
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/home.css">
 
-<title>Petz+</title>
+    <link rel="stylesheet" href="../src/components/header/header.css">
+    <link rel="stylesheet" href="../src/components/footer-nav/footer-nav.css">
 
-<link rel="stylesheet"
-href="../src/css/global.css">
+    <script src="../data/produtos.js"></script>
 
-<link rel="stylesheet"
-href="../src/css/home.css">
+    <script defer src="../src/components/header/header.js"></script>
+    <script defer src="../src/components/footer-nav/footer-nav.js"></script>
 
-<link rel="stylesheet"
-href="../src/components/header/header.css">
-
-<link rel="stylesheet"
-href="../src/components/footer-nav/footer-nav.css">
-
-<link rel="stylesheet"
-href="../src/components/product-card/product-card.css">
+    <script defer src="../js/home.js"></script>
 
 </head>
 
 <body>
 
-<div class="page">
+    <div id="header"></div>
 
-<header class="header">
+    <main>
 
-<div class="header-top">
+        <section class="banner-slider">
 
-<button class="menu-btn">☰</button>
+            <img
+                id="banner"
+                src="../src/assets/images/banners/banner1.png"
+                alt="Banner">
 
-<h1>Petz+</h1>
+        </section>
 
-<a href="perfil.html">👤</a>
+        <section class="categoria">
 
-</div>
+            <h2>Brinquedos</h2>
 
-<div class="search-box">
+            <div
+                class="produtos-grid"
+                id="brinquedos-container">
+            </div>
 
-<input
-type="text"
-placeholder="Pesquisar"
->
+        </section>
 
-<span>🔍</span>
+        <section class="categoria">
 
-</div>
+            <h2>Camas</h2>
 
-</header>
+            <div
+                class="produtos-grid"
+                id="camas-container">
+            </div>
 
-<img
-src="../src/assets/images/banners/banner-home.jpg"
-class="banner"
->
+        </section>
 
-<h2 class="section-title">
+    </main>
 
-Brinquedos
-
-</h2>
-
-<div
-class="products-grid"
-id="brinquedos-grid"
-></div>
-
-<h2 class="section-title">
-
-Camas
-
-</h2>
-
-<div
-class="products-grid"
-id="camas-grid"
-></div>
-
-</div>
-
-<nav class="footer-nav">
-
-<a href="index.html">🏠</a>
-
-<a href="carrinho.html">🛒</a>
-
-<a href="notificacoes.html">🔔</a>
-
-<a href="favoritos.html">♡</a>
-
-</nav>
-
-<script
-type="module"
-src="../src/js/home.js">
-</script>
+    <div id="footer"></div>
 
 </body>
 

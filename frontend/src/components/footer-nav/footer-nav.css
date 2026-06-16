@@ -8,13 +8,22 @@
 
     max-width:390px;
 
-    background:#9ce6e2;
+    background:#A7E4DF;
 
     display:flex;
 
     justify-content:space-around;
 
-    padding:12px;
+    align-items:center;
 
-    font-size:22px;
+    padding:12px 0;
+}
+
+.footer-nav a{
+
+    text-decoration:none;
+
+    font-size:28px;
+
+    color:#37AFA8;
 }
