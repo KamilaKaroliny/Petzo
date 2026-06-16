@@ -53,13 +53,10 @@ header input{
 }
 
 .slides img{
-    width:400px;
-    height:120px;
-
+    width:600px;
+    height:200px;
     object-fit:cover;
-
     border-radius:5px;
-
     flex-shrink:0;
 }
 
@@ -71,19 +68,15 @@ h2{
 .produtos{
     width:85%;
     margin:auto;
-
     display:grid;
     grid-template-columns:repeat(6,1fr);
-
     gap:10px;
 }
 
 .produto{
     background:white;
     border:1px solid #8ad1d1;
-
-    height:90px;
-
+    height:120px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -102,6 +95,7 @@ h2{
 
     .slides img{
         width:300px;
+        height:100px;
     }
 
 }
