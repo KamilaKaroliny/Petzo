@@ -1,62 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Petzo</title>
+    <title>Petzo - Home</title>
 
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script src="../js/home.js"></script>
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../src/css/global.css">
 
+    <!-- CSS da página -->
+    <link rel="stylesheet" href="../src/css/home.css">
+
+    <!-- Componentes -->
+    <link rel="stylesheet" href="../src/components/header/header.css">
+    <link rel="stylesheet" href="../src/components/footer/footer.css">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
-<header>
+    <!-- Header -->
+    <div id="header"></div>
 
-    <div class="topo">
-            <i class="fa-solid fa-bars"></i>
-        <img src="../assets/images/logo.png" alt="Petzo" class="logo">
-            <i class="fa-regular fa-circle-user"></i>
-    </div>
+    <main>
 
-    <div class="pesquisa">
+        <!-- Banner principal -->
+        <section class="banner-home">
+            <img src="../src/assets/images/banners/banner-home.png"
+                 alt="Banner Principal">
+        </section>
 
-        <input
-            type="text"
-            id="pesquisa"
-            placeholder="Pesquisar produtos...">
+        <!-- Aqui o home.js cria todas as categorias -->
+        <section id="categorias"></section>
 
-        <i class="fa-solid fa-magnifying-glass"></i>
+    </main>
 
-    </div>
+    <!-- Footer -->
+    <div id="footer-nav"></div>
 
-</header>
+    <!-- Dados -->
+    <script src="../src/data/produtos.js"></script>
 
-    <section class="banner">
+    <!-- Componentes -->
+    <script src="../src/components/header/header.js"></script>
+    <script src="../src/components/footer-nav/footer-nav.js"></script>
 
-        <img src="assets/images/banner.png">
-
-    </section>
-
-    <div id="categorias"></div>
-
-    <nav>
-
-        <i class="fa-solid fa-house ativo"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
-        <i class="fa-regular fa-bell"></i>
-        <i class="fa-regular fa-heart"></i>
-
-    </nav>
-
-    <script src="../data/produtos.js"></script>
-    <script src="../js/home.js"></script>
+    <!-- Página -->
+    <script src="../src/js/home.js"></script>
 
 </body>
-
 </html>

@@ -1,0 +1,46 @@
+.banner{
+    width:100%;
+    margin:20px 0;
+}
+
+.carrossel{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+}
+
+.slides{
+    display:flex;
+    transition:transform .5s ease;
+}
+
+.slides a{
+    min-width:100%;
+}
+
+.slides img{
+    width:100%;
+    display:block;
+    border-radius:20px;
+}
+
+.anterior,
+.proximo{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.8);
+    cursor:pointer;
+}
+
+.anterior{
+    left:10px;
+}
+
+.proximo{
+    right:10px;
+}

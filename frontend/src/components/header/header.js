@@ -1,11 +1,10 @@
-fetch("../src/components/header/header.html")
-    .then(res => res.text())
-    .then(data => {
-        document.getElementById("header-container").innerHTML = data;
+async function carregarHeader(){
 
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "../src/components/header/header.css";
+    const html = await fetch("../src/components/header/header.html");
 
-        document.head.appendChild(link);
-    });
+    document.getElementById("header-container").innerHTML =
+        await html.text();
+
+}
+
+carregarHeader();

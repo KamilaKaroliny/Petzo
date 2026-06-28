@@ -1,9 +1,10 @@
-fetch("../src/components/footer-nav/footer-nav.html")
-.then(response => response.text())
-.then(data => {
+async function carregarFooter(){
 
-    document
-    .getElementById("footer")
-    .innerHTML = data;
+    const html = await fetch("../src/components/footer-nav/footer-nav.html");
 
-});
+    document.getElementById("footer-container").innerHTML =
+        await html.text();
+
+}
+
+carregarFooter();
