@@ -1,67 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Petz - Home</title>
+    <title>Petzo</title>
 
-    <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/home.css">
-
-    <link rel="stylesheet" href="../src/components/header/header.css">
-    <link rel="stylesheet" href="../src/components/footer-nav/footer-nav.css">
-
-    <script src="../data/produtos.js"></script>
-
-    <script defer src="../src/components/header/header.js"></script>
-    <script defer src="../src/components/footer-nav/footer-nav.js"></script>
-
-    <script defer src="../js/home.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="../js/home.js"></script>
 
 </head>
 
 <body>
 
-    <div id="header"></div>
+<header>
 
-    <main>
+    <div class="topo">
+            <i class="fa-solid fa-bars"></i>
+        <img src="../assets/images/logo.png" alt="Petzo" class="logo">
+            <i class="fa-regular fa-circle-user"></i>
+    </div>
 
-        <section class="banner-slider">
+    <div class="pesquisa">
 
-            <img
-                id="banner"
-                src="../src/assets/images/banners/banner1.png"
-                alt="Banner">
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar produtos...">
 
-        </section>
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-        <section class="categoria">
+    </div>
 
-            <h2>Brinquedos</h2>
+</header>
 
-            <div
-                class="produtos-grid"
-                id="brinquedos-container">
-            </div>
+    <section class="banner">
 
-        </section>
+        <img src="assets/images/banner.png">
 
-        <section class="categoria">
+    </section>
 
-            <h2>Camas</h2>
+    <div id="categorias"></div>
 
-            <div
-                class="produtos-grid"
-                id="camas-container">
-            </div>
+    <nav>
 
-        </section>
+        <i class="fa-solid fa-house ativo"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-regular fa-bell"></i>
+        <i class="fa-regular fa-heart"></i>
 
-    </main>
+    </nav>
 
-    <div id="footer"></div>
+    <script src="../data/produtos.js"></script>
+    <script src="../js/home.js"></script>
 
 </body>
 

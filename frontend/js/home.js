@@ -1,100 +1,66 @@
-// ===== CARROSSEL =====
+const container = document.getElementById("categorias");
 
-const banners = [
+const categorias = {};
 
-    "../src/assets/images/banners/banner1.png",
+PRODUTOS.forEach(produto => {
 
-    "../src/assets/images/banners/banner2.png",
+    if (!categorias[produto.categoria]) {
 
-    "../src/assets/images/banners/banner3.png"
+        categorias[produto.categoria] = {
+            titulo: produto.categoriaLabel,
+            produtos: []
+        };
 
-];
-
-let bannerAtual = 0;
-
-setInterval(() => {
-
-    bannerAtual++;
-
-    if(bannerAtual >= banners.length){
-
-        bannerAtual = 0;
     }
 
-    document
-    .getElementById("banner")
-    .src = banners[bannerAtual];
+    categorias[produto.categoria].produtos.push(produto);
 
-},3000);
+});
 
-// ===== PRODUTOS =====
+Object.values(categorias).forEach(categoria => {
 
-const brinquedosContainer =
-document.getElementById(
-"brinquedos-container"
-);
+    const section = document.createElement("section");
 
-const camasContainer =
-document.getElementById(
-"camas-container"
-);
+    section.className = "categoria";
 
-const brinquedos =
-produtos.filter(
-produto =>
-produto.categoria === "brinquedos"
-);
+    section.innerHTML = `
+<h2>${categoria.titulo}</h2>
+<div class="grid"></div>
+`;
 
-const camas =
-produtos.filter(
-produto =>
-produto.categoria === "camas"
-);
+    const grid = section.querySelector(".grid");
 
-renderizarProdutos(
-brinquedos,
-brinquedosContainer
-);
+    categoria.produtos.forEach(produto => {
 
-renderizarProdutos(
-camas,
-camasContainer
-);
+        grid.innerHTML += `
 
-function renderizarProdutos(
-lista,
-container
-){
+<div class="card"
+onclick="location.href='produto.html?id=${produto.id}'">
 
-    lista.forEach(produto => {
+<img src="${produto.imagem}" alt="${produto.nome}">
 
-        container.innerHTML += `
+</div>
 
-        <div
-            class="produto"
-            onclick="abrirProduto(${produto.id})"
-        >
-
-            <img
-                src="${produto.imagem}"
-                alt="${produto.nome}"
-            >
-
-        </div>
-
-        `;
+`;
 
     });
 
-}
+    container.appendChild(section);
 
-function abrirProduto(id){
+});
 
-    localStorage.setItem(
-        "produtoSelecionado",
-        id
-    );
+const pesquisa = document.getElementById("pesquisa");
 
-    window.location.href =
-    "produto.html";
-}
+pesquisa.addEventListener("keyup", () => {
+
+    const texto = pesquisa.value.toLowerCase();
+
+    document.querySelectorAll(".card").forEach(card => {
+
+        const img = card.querySelector("img").alt.toLowerCase();
+
+        card.style.display = img.includes(texto) ? "flex" : "none";
+
+    });
+
+});

@@ -1,46 +1,59 @@
-.header{
-    background:#A3EBE8;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:100px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo{
-    height: 200px;;
-    width:400px;
+body {
+    background: #f6ffff;
+    max-width: 430px;
+    margin: auto;
 }
 
-.menu-btn{
-    border:none;
-    background:none;
-    font-size:50px;
-    color:#37AFA8;
-    cursor:pointer;
+header {
+    background: #bdeeee;
+    padding: 20px;
 }
 
-.header a{
-    text-decoration:none;
-    font-size:50px;
-    color:#A3EBE8;
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.user-icon{
-    height:100px;
-    width:100px;
+.topo h1 {
+    color: #24aeb3;
+    font-size: 42px;
 }
 
-.search-container{
-    background:#A3EBE8;
-    padding:10px 15px 20px;
+.topo i {
+    font-size: 30px;
+    color: #24aeb3;
 }
 
-.search-bar{
-    width:100%;
-    padding:30px;
-    border:none;
-    border-radius:70px;
-    font-size:30px;
-    background:#3BB3AD;
-    color:white;
+.logo {
+    width: 170px;
+    height: auto;
+}
+
+.pesquisa {
+    margin-top: 20px;
+    position: relative;
+}
+
+.pesquisa input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+}
+
+.pesquisa i {
+    position: absolute;
+    right: 18px;
+    top: 15px;
+    font-size: 20px;
+    color: #24aeb3;
 }

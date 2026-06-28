@@ -1,29 +1,32 @@
-<link rel="stylesheet" href="header.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
 
-<header class="header">
+    <div class="topo">
+            <i class="fa-solid fa-bars"></i>
+        <img src="../../../assets/images/logo.png" alt="Petzo" class="logo">
+            <a href="../../../public/perfil.html"><i class="fa-regular fa-circle-user"></i></a>
+    </div>
 
-    <button class="menu-btn">
-        ☰
-    </button>
+    <div class="pesquisa">
 
-    <img
-        src="../../../assets/images/logo.png"
-        class="logo"
-        alt="Logo">
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar produtos...">
 
-    <a href="perfil.html">
-        <img
-            src="../../../assets/icons/perfil.png"
-            class="user-icon"
-            alt="Perfil">
-    </a>
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+    </div>
 
 </header>
-
-<div class="search-container">
-
-    <input
-        type="text"
-        class="search-bar">
-
-</div>
+</body>
+</html>
