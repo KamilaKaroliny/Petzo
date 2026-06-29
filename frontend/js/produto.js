@@ -28,7 +28,6 @@ function formatarCategoriaLabel(categoria, categoriaLabel) {
 function normalizarProduto(produto, indice) {
   const id = produto.id !== undefined && produto.id !== null ? String(produto.id) : `produto-${indice + 1}`;
   const categoria = produto.categoria || "produtos";
-
   return {
     id,
     nome: produto.nome || "Produto sem nome",
@@ -45,44 +44,22 @@ const CATALOGO = obterCatalogoOriginal().map(normalizarProduto);
 
 function corrigirCaminhoImagem(caminho) {
   if (!caminho) return "";
-
-  if (
-    caminho.startsWith("../") ||
-    caminho.startsWith("./") ||
-    caminho.startsWith("/") ||
-    caminho.startsWith("http") ||
-    caminho.startsWith("data:")
-  ) {
-    return caminho;
-  }
-
+  if (caminho.startsWith("../") || caminho.startsWith("./") || caminho.startsWith("/") || caminho.startsWith("http") || caminho.startsWith("data:")) return caminho;
   return "../" + caminho;
 }
 
 function getProdutoByIdPagina(id) {
   if (!id) return null;
-
   const idTexto = String(id);
   const produtoEncontrado = CATALOGO.find(produto => produto.id === idTexto);
-
   if (produtoEncontrado) return produtoEncontrado;
-
-  const mapaIdsAntigos = {
-    "1": "mordedor-tranca",
-    "2": "bolinha-porta-petiscos"
-  };
-
-  if (mapaIdsAntigos[idTexto]) {
-    return CATALOGO.find(produto => produto.id === mapaIdsAntigos[idTexto]) || null;
-  }
-
+  const mapaIdsAntigos = { "1": "mordedor-tranca", "2": "bolinha-porta-petiscos" };
+  if (mapaIdsAntigos[idTexto]) return CATALOGO.find(produto => produto.id === mapaIdsAntigos[idTexto]) || null;
   return null;
 }
 
 function getProdutosByCategoriaPagina(categoria, excludeId, limit = 12) {
-  return CATALOGO
-    .filter(produto => produto.categoria === categoria && produto.id !== excludeId)
-    .slice(0, limit);
+  return CATALOGO.filter(produto => produto.categoria === categoria && produto.id !== excludeId).slice(0, limit);
 }
 
 function montarCardProduto(produto) {
@@ -91,8 +68,7 @@ function montarCardProduto(produto) {
       <img src="${corrigirCaminhoImagem(produto.imagem)}" alt="${produto.nome}" loading="lazy">
       <h2>${produto.nome}</h2>
       <strong>${produto.preco}</strong>
-    </a>
-  `;
+    </a>`;
 }
 
 function mostrarCatalogo(mensagem = "") {
@@ -100,27 +76,22 @@ function mostrarCatalogo(mensagem = "") {
   document.getElementById("btn-back").href = "home.html";
   localStorage.removeItem("produtoSelecionado");
 
-  const aviso = mensagem
-    ? `
-      <div class="not-found">
-        <h2>Produto não encontrado</h2>
-        <p>${mensagem}</p>
-        <a href="home.html">Voltar para a Home</a>
-      </div>
-    `
-    : "";
+  const aviso = mensagem ? `
+    <div class="not-found">
+      <h2>Produto não encontrado</h2>
+      <p>${mensagem}</p>
+      <a href="home.html">Voltar para a Home</a>
+    </div>` : "";
 
   content.innerHTML = `
     ${aviso}
     <section class="catalog-section">
       <h1>Produtos Petzo</h1>
       <p>Clique em um produto para ver os detalhes.</p>
-
       <div class="catalog-grid">
         ${CATALOGO.map(montarCardProduto).join("")}
       </div>
-    </section>
-  `;
+    </section>`;
 }
 
 function mostrarErroCatalogo() {
@@ -130,8 +101,7 @@ function mostrarErroCatalogo() {
       <p>Verifique se o arquivo <strong>produtos.js</strong> está dentro da pasta <strong>data</strong>.</p>
       <p>O caminho esperado é: <strong>frontend/data/produtos.js</strong></p>
       <a href="home.html">Voltar para a Home</a>
-    </div>
-  `;
+    </div>`;
 }
 
 function mostrarProduto(produto) {
@@ -180,7 +150,6 @@ function mostrarProduto(produto) {
             type="button"
             aria-label="Adicionar aos favoritos"
             title="Adicionar aos favoritos">
-            <span id="heart-icon">♡</span>
           </button>
         </div>
       </div>
@@ -236,21 +205,28 @@ function mostrarProduto(produto) {
 
 function ativarInteracoes(produto) {
   const wishlistBtn = document.getElementById("wishlist-btn");
-  const heartIcon = document.getElementById("heart-icon");
   const cepInput = document.getElementById("cep");
   const btnShipping = document.getElementById("btn-shipping");
   const shippingResult = document.getElementById("shipping-result");
   const btnCart = document.getElementById("btn-add-to-cart");
 
+  if (localStorage.getItem("favorito_" + produto.id) === "sim") {
+    wishlistBtn.classList.add("active");
+    wishlistBtn.setAttribute("aria-label", "Remover dos favoritos");
+    wishlistBtn.setAttribute("title", "Remover dos favoritos");
+  }
+
   wishlistBtn.addEventListener("click", () => {
     wishlistBtn.classList.toggle("active");
 
     if (wishlistBtn.classList.contains("active")) {
-      heartIcon.textContent = "♥";
       wishlistBtn.setAttribute("aria-label", "Remover dos favoritos");
+      wishlistBtn.setAttribute("title", "Remover dos favoritos");
+      localStorage.setItem("favorito_" + produto.id, "sim");
     } else {
-      heartIcon.textContent = "♡";
       wishlistBtn.setAttribute("aria-label", "Adicionar aos favoritos");
+      wishlistBtn.setAttribute("title", "Adicionar aos favoritos");
+      localStorage.removeItem("favorito_" + produto.id);
     }
   });
 
@@ -291,24 +267,19 @@ function ativarInteracoes(produto) {
 
 function iniciarPaginaProduto() {
   if (!content) return;
-
   if (CATALOGO.length === 0) {
     mostrarErroCatalogo();
     return;
   }
-
   if (idUrl) {
     const produtoAtual = getProdutoByIdPagina(idUrl);
-
     if (produtoAtual) {
       mostrarProduto(produtoAtual);
       return;
     }
-
     mostrarCatalogo("O produto que você está procurando não existe ou o ID está incorreto.");
     return;
   }
-
   mostrarCatalogo();
 }
 
