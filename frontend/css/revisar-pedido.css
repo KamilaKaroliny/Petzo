@@ -1,0 +1,261 @@
+/* ==========================================
+   GERAL
+========================================== */
+
+body {
+    background: #ececec;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   CONTAINER PRINCIPAL
+========================================== */
+
+.revisao-container {
+    max-width: 900px;
+    margin: 30px auto 170px;
+    background: #fff;
+    border-radius: 35px 35px 0 0;
+    padding: 35px 30px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, .08);
+}
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+.titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo h1 {
+    color: #2d7f80;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ==========================================
+   INFORMAÇÕES
+========================================== */
+
+.card-informacao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.icone {
+    width: 45px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.icone i {
+    font-size: 2rem;
+    color: #000;
+}
+
+.texto {
+    flex: 1;
+}
+
+.texto h3 {
+    color: #2d7f80;
+    font-size: 1.15rem;
+    margin-bottom: 3px;
+}
+
+.texto p {
+    color: #9a9a9a;
+    font-size: .95rem;
+}
+
+/* ==========================================
+   RESUMO
+========================================== */
+
+.resumo {
+    margin-top: 40px;
+    border-top: 1px solid #e7e7e7;
+    padding-top: 25px;
+}
+
+.resumo h2 {
+    color: #2d7f80;
+    margin-bottom: 20px;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 1rem;
+}
+
+.total {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #ececec;
+    font-size: 1.15rem;
+}
+
+/* ==========================================
+   BOTÃO FIXO
+========================================== */
+
+.rodape-pedido {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    padding: 16px;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, .08);
+    z-index: 1000;
+}
+
+/* evita conteúdo ficar escondido atrás do botão */
+.revisao-container {
+    padding-bottom: 110px;
+}
+
+#btn-finalizar {
+    width: 100%;
+    max-width: 900px;
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    background: #46b8b8;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+
+#btn-finalizar:hover {
+    background: #2d7f80;
+}
+
+/* ==========================================
+   RESPONSIVO TABLET
+========================================== */
+
+@media (max-width: 768px) {
+
+    .revisao-container {
+        margin: 15px 12px 140px;
+        padding: 25px 18px;
+        border-radius: 25px 25px 0 0;
+    }
+
+    .titulo h1 {
+        font-size: 1.7rem;
+    }
+
+    .card-informacao {
+        gap: 14px;
+    }
+
+    .icone i {
+        font-size: 1.7rem;
+    }
+
+    .texto h3 {
+        font-size: 1rem;
+    }
+
+    .texto p {
+        font-size: .85rem;
+    }
+
+    .linha {
+        font-size: .95rem;
+    }
+
+    #btn-finalizar {
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   RESPONSIVO MOBILE PEQUENO
+========================================== */
+
+@media (max-width: 480px) {
+
+    .revisao-container {
+        margin: 10px 10px 130px;
+        padding: 20px 15px;
+    }
+
+    .titulo h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-informacao {
+        flex-direction: row; /* mantém alinhado, mas mais compacto */
+        gap: 12px;
+    }
+
+    .icone i {
+        font-size: 1.5rem;
+    }
+
+    .texto h3 {
+        font-size: .95rem;
+    }
+
+    .texto p {
+        font-size: .8rem;
+    }
+
+    .resumo h2 {
+        font-size: 1.1rem;
+    }
+
+    .linha {
+        font-size: .9rem;
+    }
+
+    #btn-finalizar {
+        height: 48px;
+        font-size: .95rem;
+    }
+}
+
+@media (min-width: 900px) {
+
+    /* transforma barra em área normal */
+    .rodape-pedido {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 35px;
+    }
+
+    /* cria “card de ação” mais elegante */
+    .rodape-pedido::before {
+        content: "";
+        display: block;
+        height: 1px;
+        background: #e7e7e7;
+        margin-bottom: 20px;
+    }
+
+    #btn-finalizar {
+        max-width: 320px;
+        margin: 0 auto;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+}

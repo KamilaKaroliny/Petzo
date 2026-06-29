@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Petzo • Revisão do Pedido</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/revisar-pedido.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body class="has-footer">
+
+    <!-- HEADER -->
+    <app-header></app-header>
+
+    <main class="revisao-container">
+
+        <section class="titulo">
+
+            <h1>Revise seu Pedido</h1>
+
+        </section>
+
+        <!-- ENTREGA -->
+
+        <section class="card-informacao">
+
+            <div class="icone">
+                <i class="fa-solid fa-truck-fast"></i>
+            </div>
+
+            <div class="texto">
+
+                <h3>Entrega hoje</h3>
+
+                <p>Hoje, 40 - 50 min</p>
+
+            </div>
+
+        </section>
+
+        <!-- ENDEREÇO -->
+
+        <section class="card-informacao">
+
+            <div class="icone">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div class="texto">
+
+                <h3>Rua teste, 123</h3>
+
+                <p>Bairro</p>
+
+            </div>
+
+        </section>
+
+        <!-- PAGAMENTO -->
+
+        <section class="card-informacao">
+
+            <div class="icone">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <div class="texto">
+
+                <h3>Pagamento pelo app</h3>
+
+                <p>Apple Pay</p>
+
+            </div>
+
+        </section>
+
+        <!-- RESUMO -->
+
+        <section class="resumo">
+
+            <h2>Resumo</h2>
+
+            <div class="linha">
+
+                <span>Subtotal</span>
+
+                <span id="subtotal">
+                    R$ 0,00
+                </span>
+
+            </div>
+
+            <div class="linha">
+
+                <span>Entrega</span>
+
+                <span id="frete">
+                    Grátis
+                </span>
+
+            </div>
+
+            <div class="linha total">
+
+                <strong>Total</strong>
+
+                <strong id="total">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- BOTÃO FIXO -->
+
+    <section class="rodape-pedido">
+
+        <button id="btn-finalizar">
+            Finalizar Pedido
+        </button>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <app-footer></app-footer>
+
+    <!-- Dados -->
+
+    <script src="../data/produtos.js"></script>
+
+    <!-- Web Components -->
+
+    <script type="module" src="../src/components/index.js"></script>
+
+    <!-- Página -->
+
+    <script src="../js/revisar-pedido.js"></script>
+
+</body>
+
+</html>
