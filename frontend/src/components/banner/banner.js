@@ -30,15 +30,15 @@ class BannerComponent extends HTMLElement {
 
   connectedCallback() {
     const banners = [
-      { imagem: "../assets/images/banners/brinquedos.png", link: "/pages/brinquedos.html" },
-      { imagem: "../assets/images/banners/aves.png", link: "/pages/aves.html" },
-      { imagem: "../assets/images/banners/acessorios.png", link: "/pages/acessorios.html" },
-      { imagem: "../assets/images/banners/aquaticos.png", link: "/pages/aquaticos.html" },
+      { imagem: "../assets/images/banners/brinquedos.png", link: "../public/brinquedos.html" },
+      { imagem: "../assets/images/banners/aves.png", link: "../public/aves.html" },
+      { imagem: "../assets/images/banners/acessorios.png", link: "../public/acessorios.html" },
+      { imagem: "../assets/images/banners/aquaticos.png", link: "../public/aquaticos.html" },
       { imagem: "../assets/images/banners/cashback.png", link: "#" },
       { imagem: "../assets/images/banners/cupom.png", link: "#" },
       { imagem: "../assets/images/banners/frete.png", link: "#" },
-      { imagem: "../assets/images/banners/racao.png", link: "/pages/racao.html" },
-      { imagem: "../assets/images/banners/roedores.png", link: "/pages/roedores.html" }
+      { imagem: "../assets/images/banners/racao.png", link: "../public/racao.html" },
+      { imagem: "../assets/images/banners/roedores.png", link: "../public/roedores.html" }
     ];
 
     const slides = this.shadowRoot.querySelector(".slides");
