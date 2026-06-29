@@ -1,215 +1,315 @@
+const params = new URLSearchParams(window.location.search);
+const idUrl = params.get("id");
+const content = document.getElementById("page-content");
 
-const idProduto =
-Number(
-localStorage.getItem(
-"produtoSelecionado"
-));
-
-const produto =
-produtos.find(
-p => p.id === idProduto
-);
-
-
-if(!produto){
-    alert("Produto não encontrado");
-    history.back();
+function obterCatalogoOriginal() {
+  if (typeof PRODUTOS !== "undefined" && Array.isArray(PRODUTOS)) return PRODUTOS;
+  if (typeof produtos !== "undefined" && Array.isArray(produtos)) return produtos;
+  return [];
 }
 
-const nome =
-document.getElementById(
-"nomeProduto"
-);
+function formatarPreco(preco) {
+  if (typeof preco === "number") return `R$ ${preco.toFixed(2).replace(".", ",")}`;
+  return preco || "Preço não informado";
+}
 
-const preco =
-document.getElementById(
-"precoProduto"
-);
+function primeiraImagem(produto) {
+  if (produto.imagem) return produto.imagem;
+  if (Array.isArray(produto.imagens) && produto.imagens.length > 0) return produto.imagens[0];
+  return "";
+}
 
-const descricao =
-document.getElementById(
-"descricaoProduto"
-);
+function formatarCategoriaLabel(categoria, categoriaLabel) {
+  if (categoriaLabel) return categoriaLabel;
+  if (!categoria) return "Produtos";
+  return categoria.charAt(0).toUpperCase() + categoria.slice(1);
+}
 
-const imagemPrincipal =
-document.getElementById(
-"imagemPrincipal"
-);
+function normalizarProduto(produto, indice) {
+  const id = produto.id !== undefined && produto.id !== null ? String(produto.id) : `produto-${indice + 1}`;
+  const categoria = produto.categoria || "produtos";
 
-const miniaturas =
-document.getElementById(
-"miniaturas"
-);
+  return {
+    id,
+    nome: produto.nome || "Produto sem nome",
+    preco: formatarPreco(produto.preco),
+    descricao: produto.descricao || "Descrição não cadastrada.",
+    imagem: primeiraImagem(produto),
+    categoria,
+    categoriaLabel: formatarCategoriaLabel(categoria, produto.categoriaLabel),
+    original: produto
+  };
+}
 
-nome.textContent =
-produto.nome;
+const CATALOGO = obterCatalogoOriginal().map(normalizarProduto);
 
-preco.textContent =
-`R$ ${produto.preco.toFixed(2)}`;
+function corrigirCaminhoImagem(caminho) {
+  if (!caminho) return "";
 
-descricao.textContent =
-produto.descricao;
+  if (
+    caminho.startsWith("../") ||
+    caminho.startsWith("./") ||
+    caminho.startsWith("/") ||
+    caminho.startsWith("http") ||
+    caminho.startsWith("data:")
+  ) {
+    return caminho;
+  }
 
-imagemPrincipal.src =
-produto.imagens[0];
+  return "../" + caminho;
+}
 
-produto.imagens.forEach(imagem => {
+function getProdutoByIdPagina(id) {
+  if (!id) return null;
 
-    const img =
-    document.createElement("img");
+  const idTexto = String(id);
+  const produtoEncontrado = CATALOGO.find(produto => produto.id === idTexto);
 
-    img.src = imagem;
+  if (produtoEncontrado) return produtoEncontrado;
 
-    img.addEventListener(
-    "click",
-    () => {
+  const mapaIdsAntigos = {
+    "1": "mordedor-tranca",
+    "2": "bolinha-porta-petiscos"
+  };
 
-        imagemPrincipal.src =
-        imagem;
+  if (mapaIdsAntigos[idTexto]) {
+    return CATALOGO.find(produto => produto.id === mapaIdsAntigos[idTexto]) || null;
+  }
 
-    });
+  return null;
+}
 
-    miniaturas.appendChild(img);
+function getProdutosByCategoriaPagina(categoria, excludeId, limit = 12) {
+  return CATALOGO
+    .filter(produto => produto.categoria === categoria && produto.id !== excludeId)
+    .slice(0, limit);
+}
 
-});
+function montarCardProduto(produto) {
+  return `
+    <a class="catalog-card" href="produto.html?id=${produto.id}">
+      <img src="${corrigirCaminhoImagem(produto.imagem)}" alt="${produto.nome}" loading="lazy">
+      <h2>${produto.nome}</h2>
+      <strong>${produto.preco}</strong>
+    </a>
+  `;
+}
 
-document
-.getElementById("btnFrete")
-.addEventListener(
-"click",
-() => {
+function mostrarCatalogo(mensagem = "") {
+  document.title = "Petzo - Produtos";
+  document.getElementById("btn-back").href = "home.html";
+  localStorage.removeItem("produtoSelecionado");
 
-    const cep =
-    document
-    .getElementById("cep")
-    .value;
+  const aviso = mensagem
+    ? `
+      <div class="not-found">
+        <h2>Produto não encontrado</h2>
+        <p>${mensagem}</p>
+        <a href="home.html">Voltar para a Home</a>
+      </div>
+    `
+    : "";
 
-    const resultado =
-    document
-    .getElementById(
-    "resultadoFrete"
-    );
+  content.innerHTML = `
+    ${aviso}
+    <section class="catalog-section">
+      <h1>Produtos Petzo</h1>
+      <p>Clique em um produto para ver os detalhes.</p>
 
-    if(cep.length < 8){
+      <div class="catalog-grid">
+        ${CATALOGO.map(montarCardProduto).join("")}
+      </div>
+    </section>
+  `;
+}
 
-        resultado.textContent =
-        "CEP inválido.";
+function mostrarErroCatalogo() {
+  content.innerHTML = `
+    <div class="not-found">
+      <h2>Erro ao carregar produtos</h2>
+      <p>Verifique se o arquivo <strong>produtos.js</strong> está dentro da pasta <strong>data</strong>.</p>
+      <p>O caminho esperado é: <strong>frontend/data/produtos.js</strong></p>
+      <a href="home.html">Voltar para a Home</a>
+    </div>
+  `;
+}
 
-        return;
+function mostrarProduto(produto) {
+  document.title = `Petzo - ${produto.nome}`;
+  document.getElementById("btn-back").href = `${produto.categoria}.html`;
+
+  const recomendados = getProdutosByCategoriaPagina(produto.categoria, produto.id, 12);
+
+  const recHTML = recomendados.map(item => `
+    <a class="rec-item" href="produto.html?id=${item.id}" title="${item.nome}">
+      <img src="${corrigirCaminhoImagem(item.imagem)}" alt="${item.nome}" loading="lazy">
+    </a>
+  `).join("");
+
+  content.innerHTML = `
+    <nav class="breadcrumb" aria-label="Localização">
+      <a href="home.html">Home</a>
+      <span>›</span>
+      <a href="${produto.categoria}.html">${produto.categoriaLabel}</a>
+      <span>›</span>
+      ${produto.nome}
+    </nav>
+
+    <main class="product-container">
+      <div class="product-gallery">
+        <div class="main-image-box">
+          <img
+            src="${corrigirCaminhoImagem(produto.imagem)}"
+            alt="${produto.nome}"
+            id="main-img"
+            onerror="this.style.opacity='.3'; this.alt='Imagem indisponível'">
+        </div>
+
+        <div class="gallery-footer">
+          <div class="pagination-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+
+          <button
+            class="wishlist-btn"
+            id="wishlist-btn"
+            type="button"
+            aria-label="Adicionar aos favoritos"
+            title="Adicionar aos favoritos">
+            <span id="heart-icon">♡</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="product-details">
+        <span class="product-category-badge">
+          <span class="badge-icon">🏷</span>
+          ${produto.categoriaLabel}
+        </span>
+
+        <h1 class="product-title">${produto.nome}</h1>
+
+        <div class="product-price">${produto.preco}</div>
+
+        <p class="product-description">${produto.descricao}</p>
+
+        <div class="shipping-box">
+          <div class="cep-input-wrapper">
+            <label for="cep">CEP:</label>
+            <input
+              type="text"
+              id="cep"
+              name="cep"
+              placeholder="00000-000"
+              maxlength="9">
+          </div>
+
+          <button class="btn-shipping" id="btn-shipping" type="button">
+            Calcular frete
+          </button>
+        </div>
+
+        <p class="shipping-result" id="shipping-result"></p>
+
+        <button class="btn-add-to-cart" id="btn-add-to-cart" type="button">
+          <span class="cart-icon">+</span>
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </main>
+
+    <section class="recommendations">
+      <h2 class="rec-title">Encontre mais ${produto.categoriaLabel.toLowerCase()}!</h2>
+
+      <div class="rec-grid">
+        ${recHTML || '<p class="empty-rec">Nenhuma recomendação disponível.</p>'}
+      </div>
+    </section>
+  `;
+
+  ativarInteracoes(produto);
+}
+
+function ativarInteracoes(produto) {
+  const wishlistBtn = document.getElementById("wishlist-btn");
+  const heartIcon = document.getElementById("heart-icon");
+  const cepInput = document.getElementById("cep");
+  const btnShipping = document.getElementById("btn-shipping");
+  const shippingResult = document.getElementById("shipping-result");
+  const btnCart = document.getElementById("btn-add-to-cart");
+
+  wishlistBtn.addEventListener("click", () => {
+    wishlistBtn.classList.toggle("active");
+
+    if (wishlistBtn.classList.contains("active")) {
+      heartIcon.textContent = "♥";
+      wishlistBtn.setAttribute("aria-label", "Remover dos favoritos");
+    } else {
+      heartIcon.textContent = "♡";
+      wishlistBtn.setAttribute("aria-label", "Adicionar aos favoritos");
+    }
+  });
+
+  cepInput.addEventListener("input", () => {
+    cepInput.value = cepInput.value
+      .replace(/\D/g, "")
+      .replace(/^(\d{5})(\d)/, "$1-$2")
+      .slice(0, 9);
+  });
+
+  btnShipping.addEventListener("click", () => {
+    const cep = cepInput.value.replace(/\D/g, "");
+
+    if (cep.length !== 8) {
+      shippingResult.textContent = "Informe um CEP válido com 8 números.";
+      return;
     }
 
-    resultado.textContent =
-    "Frete estimado: R$ 12,90";
+    shippingResult.textContent = `Frete estimado para o CEP ${cep}: R$ 12,90`;
+  });
 
-});
-
-document
-.getElementById("btnFavorito")
-.addEventListener(
-"click",
-() => {
-
-    let favoritos =
-    JSON.parse(
-    localStorage.getItem(
-    "favoritos"
-    )) || [];
-
-    if(
-    !favoritos.includes(
-    produto.id
-    )
-    ){
-
-        favoritos.push(
-        produto.id
-        );
-
-        localStorage.setItem(
-        "favoritos",
-
-        JSON.stringify(
-        favoritos
-        )
-        );
-
-        alert(
-        "Produto favoritado!"
-        );
-
-    }
-
-});
-
-document
-.getElementById("btnCarrinho")
-.addEventListener(
-"click",
-() => {
-
-    let carrinho =
-    JSON.parse(
-    localStorage.getItem(
-    "carrinho"
-    )) || [];
+  btnCart.addEventListener("click", () => {
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
     carrinho.push(produto.id);
 
-    localStorage.setItem(
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-        "carrinho",
+    btnCart.innerHTML = '<span class="cart-icon">✓</span> Adicionado!';
+    btnCart.classList.add("added");
 
-        JSON.stringify(
-        carrinho
-        )
-
-    );
-
-    alert(
-    "Produto adicionado ao carrinho!"
-    );
-
-});
-
-const relacionados =
-produtos.filter(
-p =>
-p.categoria ===
-produto.categoria
-&&
-p.id !== produto.id
-);
-
-const areaRelacionados =
-document.getElementById(
-"produtosRelacionados"
-);
-
-relacionados.forEach(item => {
-
-    areaRelacionados.innerHTML += `
-
-    <div
-    class="relacionado"
-
-    onclick="abrirProduto(${item.id})">
-
-        <img src="${item.imagens[0]}">
-
-        <p>${item.nome}</p>
-
-    </div>
-
-    `;
-
-});
-
-function abrirProduto(id){
-
-    localStorage.setItem(
-    "produtoSelecionado",
-    id
-    );
-
-    location.href = "produto.html";
+    setTimeout(() => {
+      btnCart.innerHTML = '<span class="cart-icon">+</span> Adicionar ao Carrinho';
+      btnCart.classList.remove("added");
+    }, 2000);
+  });
 }
+
+function iniciarPaginaProduto() {
+  if (!content) return;
+
+  if (CATALOGO.length === 0) {
+    mostrarErroCatalogo();
+    return;
+  }
+
+  if (idUrl) {
+    const produtoAtual = getProdutoByIdPagina(idUrl);
+
+    if (produtoAtual) {
+      mostrarProduto(produtoAtual);
+      return;
+    }
+
+    mostrarCatalogo("O produto que você está procurando não existe ou o ID está incorreto.");
+    return;
+  }
+
+  mostrarCatalogo();
+}
+
+iniciarPaginaProduto();
