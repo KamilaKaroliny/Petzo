@@ -324,7 +324,6 @@ header {
   .recommendations { padding: 0 20px 30px; }
 }
 
-/* Correção dos ícones sem Font Awesome */
 
 .btn-back {
   font-size: 24px;
@@ -354,7 +353,7 @@ header {
   line-height: 1;
 }
 
-/* Botão voltar com seta desenhada em CSS, sem Font Awesome */
+
 .btn-back {
   position: relative;
   font-size: 0;
@@ -381,9 +380,6 @@ header {
   border-color: var(--white);
 }
 
-/* ================================
-   Responsividade para Desktop
-   ================================ */
 
 @media (min-width: 1024px) {
   body {
