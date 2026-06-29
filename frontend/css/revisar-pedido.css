@@ -232,30 +232,85 @@ body {
     }
 }
 
+/* ==========================================
+   DESKTOP
+========================================== */
+
 @media (min-width: 900px) {
 
-    /* transforma barra em área normal */
-    .rodape-pedido {
-        position: static;
-        background: transparent;
-        box-shadow: none;
-        padding: 0;
-        margin-top: 35px;
+    .revisao-container{
+        max-width:700px;
+        margin:35px auto 50px;
+        padding:30px 35px;
+        border-radius:24px;
+        box-shadow:0 8px 25px rgba(0,0,0,.08);
     }
 
-    /* cria “card de ação” mais elegante */
-    .rodape-pedido::before {
-        content: "";
-        display: block;
-        height: 1px;
-        background: #e7e7e7;
-        margin-bottom: 20px;
+    .titulo{
+        margin-bottom:25px;
     }
 
-    #btn-finalizar {
-        max-width: 320px;
-        margin: 0 auto;
-        border-radius: 10px;
-        font-size: 1rem;
+    .titulo h1{
+        font-size:1.8rem;
     }
+
+    .card-informacao{
+        gap:16px;
+        padding:14px 0;
+        margin-bottom:0;
+        border-bottom:1px solid #f0f0f0;
+    }
+
+    .card-informacao:last-child{
+        border-bottom:none;
+    }
+
+    .icone{
+        width:42px;
+    }
+
+    .icone i{
+        font-size:1.8rem;
+    }
+
+    .texto h3{
+        font-size:1.05rem;
+    }
+
+    .texto p{
+        font-size:.9rem;
+    }
+
+    .resumo{
+        margin-top:28px;
+    }
+
+    .linha{
+        font-size:.98rem;
+        margin-bottom:12px;
+    }
+
+    .total{
+        font-size:1.2rem;
+    }
+
+    /* botão deixa de ser fixo */
+
+    .rodape-pedido{
+        position:static;
+        background:transparent;
+        box-shadow:none;
+        padding:0;
+        margin-top:30px;
+        display:flex;
+        justify-content:flex-end;
+    }
+
+    #btn-finalizar{
+        width:260px;
+        height:52px;
+        border-radius:10px;
+        font-size:1rem;
+    }
+
 }

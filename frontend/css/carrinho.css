@@ -204,31 +204,49 @@ h2 {
 =========================== */
 
 @media (min-width: 768px) {
-    .carrinho-container {
-        width: 90%;
+
+    .carrinho-container{
+        width:700px;
+        max-width:95%;
+        margin:40px auto 220px;
     }
 
-    .produto-carrinho {
-        padding: 20px;
+    .produto-carrinho{
+        padding:18px;
+        margin-bottom:18px;
+        border-radius:14px;
     }
 
-    .produto-imagem {
-        width: 140px;
-        height: 140px;
+    .produto-imagem{
+        width:110px;
+        height:110px;
+        border-radius:12px;
     }
 
-    .produto-info h3 {
-        font-size: 1.2rem;
+    .produto-info h3{
+        font-size:1.1rem;
     }
 
-    .preco-atual {
-        font-size: 1.8rem;
+    .preco-atual{
+        font-size:1.45rem;
     }
 
-    .resumo-pedido {
-        width: 900px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 12px 12px 0 0;
+    .resumo-pedido{
+        width:700px;
+        max-width:95%;
+        left:50%;
+        transform:translateX(-50%);
+        border-radius:16px 16px 0 0;
+        padding:22px;
     }
+
+}
+
+@media (min-width: 1200px){
+
+    .carrinho-container,
+    .resumo-pedido{
+        width:760px;
+    }
+
 }

@@ -6,7 +6,7 @@
 }
 
 body{
-    background:#ececec;
+    background:#f6ffff;
     padding-bottom: 70px;
 }
 
@@ -75,7 +75,7 @@ h2{
 
 .produto{
     background:white;
-    border:1px solid #8ad1d1;
+    border: 2px solid #8fd9db;
     height:120px;
     display:flex;
     justify-content:center;
