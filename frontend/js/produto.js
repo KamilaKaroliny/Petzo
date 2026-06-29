@@ -41,6 +41,7 @@ function normalizarProduto(produto, indice) {
 }
 
 const CATALOGO = obterCatalogoOriginal().map(normalizarProduto);
+console.log("CATALOGO:", CATALOGO.length);
 
 function corrigirCaminhoImagem(caminho) {
   if (!caminho) return "";
@@ -204,11 +205,16 @@ function mostrarProduto(produto) {
 }
 
 function ativarInteracoes(produto) {
+  console.log("ativarInteracoes executou");
   const wishlistBtn = document.getElementById("wishlist-btn");
   const cepInput = document.getElementById("cep");
   const btnShipping = document.getElementById("btn-shipping");
   const shippingResult = document.getElementById("shipping-result");
   const btnCart = document.getElementById("btn-add-to-cart");
+
+  // ============================
+  // FAVORITOS
+  // ============================
 
   if (localStorage.getItem("favorito_" + produto.id) === "sim") {
     wishlistBtn.classList.add("active");
@@ -217,55 +223,91 @@ function ativarInteracoes(produto) {
   }
 
   wishlistBtn.addEventListener("click", () => {
+
+    console.log("CLICOU");
+
     wishlistBtn.classList.toggle("active");
 
     if (wishlistBtn.classList.contains("active")) {
-      wishlistBtn.setAttribute("aria-label", "Remover dos favoritos");
-      wishlistBtn.setAttribute("title", "Remover dos favoritos");
-      localStorage.setItem("favorito_" + produto.id, "sim");
+
+        localStorage.setItem("favorito_" + produto.id, "sim");
+
     } else {
-      wishlistBtn.setAttribute("aria-label", "Adicionar aos favoritos");
-      wishlistBtn.setAttribute("title", "Adicionar aos favoritos");
-      localStorage.removeItem("favorito_" + produto.id);
+
+        localStorage.removeItem("favorito_" + produto.id);
+
     }
-  });
+
+});
+
+  // ============================
+  // CEP
+  // ============================
 
   cepInput.addEventListener("input", () => {
+
     cepInput.value = cepInput.value
       .replace(/\D/g, "")
       .replace(/^(\d{5})(\d)/, "$1-$2")
       .slice(0, 9);
+
   });
 
   btnShipping.addEventListener("click", () => {
+
     const cep = cepInput.value.replace(/\D/g, "");
 
     if (cep.length !== 8) {
-      shippingResult.textContent = "Informe um CEP válido com 8 números.";
+
+      shippingResult.textContent =
+        "Informe um CEP válido com 8 números.";
+
       return;
+
     }
 
-    shippingResult.textContent = `Frete estimado para o CEP ${cep}: R$ 12,90`;
+    shippingResult.textContent =
+      `Frete estimado para o CEP ${cep}: R$ 12,90`;
+
   });
 
+  // ============================
+  // CARRINHO
+  // ============================
+
   btnCart.addEventListener("click", () => {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    const carrinho =
+      JSON.parse(localStorage.getItem("carrinho")) || [];
 
     carrinho.push(produto.id);
 
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    localStorage.setItem(
+      "carrinho",
+      JSON.stringify(carrinho)
+    );
 
-    btnCart.innerHTML = '<span class="cart-icon">✓</span> Adicionado!';
+    btnCart.innerHTML =
+      '<span class="cart-icon">✓</span> Adicionado!';
+
     btnCart.classList.add("added");
 
     setTimeout(() => {
-      btnCart.innerHTML = '<span class="cart-icon">+</span> Adicionar ao Carrinho';
+
+      btnCart.innerHTML =
+        '<span class="cart-icon">+</span> Adicionar ao Carrinho';
+
       btnCart.classList.remove("added");
+
     }, 2000);
+
   });
+
 }
 
 function iniciarPaginaProduto() {
+  console.log("Entrou iniciarPaginaProduto");
+  console.log("idUrl:", idUrl);
   if (!content) return;
   if (CATALOGO.length === 0) {
     mostrarErroCatalogo();
@@ -273,6 +315,7 @@ function iniciarPaginaProduto() {
   }
   if (idUrl) {
     const produtoAtual = getProdutoByIdPagina(idUrl);
+    console.log("Produto encontrado:", produtoAtual);
     if (produtoAtual) {
       mostrarProduto(produtoAtual);
       return;

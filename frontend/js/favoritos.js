@@ -47,7 +47,7 @@ function carregarFavoritos() {
         card.innerHTML = `
 
             <img
-                src="${produto.imagem}"
+                src="${produto.imagem || produto.imagens[0]}"
                 alt="${produto.nome}"
                 class="imagem-produto">
 
