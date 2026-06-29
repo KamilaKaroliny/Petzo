@@ -1,174 +1,175 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
 
-background:#f6ffff;
-max-width:430px;
-margin:auto;
-
-}
-
-header{
-
-background:#bdeeee;
-padding:20px;
+    background: #f6ffff;
+    max-width: 430px;
+    margin: auto;
+    padding-bottom: 70px; /* para páginas com footer */
 
 }
 
-.topo{
+header {
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.topo h1{
-
-color:#24aeb3;
-font-size:42px;
+    background: #bdeeee;
+    padding: 20px;
 
 }
 
-.topo i{
+.topo {
 
-font-size:30px;
-color:#24aeb3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topo h1 {
+
+    color: #24aeb3;
+    font-size: 42px;
 
 }
 
-.pesquisa{
+.topo i {
 
-margin-top:20px;
-position:relative;
-
-}
-
-.pesquisa input{
-
-width:100%;
-padding:15px;
-border:none;
-border-radius:30px;
-box-shadow:0 3px 10px rgba(0,0,0,.2);
+    font-size: 30px;
+    color: #24aeb3;
 
 }
 
-.pesquisa i{
+.pesquisa {
 
-position:absolute;
-right:18px;
-top:15px;
-font-size:20px;
-color:#24aeb3;
+    margin-top: 20px;
+    position: relative;
 
 }
 
-.banner img{
+.pesquisa input {
 
-width:100%;
-padding:15px;
-
-}
-
-.categoria{
-
-padding:15px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
 
 }
 
-.categoria h2{
+.pesquisa i {
 
-color:#248d91;
-margin-bottom:15px;
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:10px;
+    position: absolute;
+    right: 18px;
+    top: 15px;
+    font-size: 20px;
+    color: #24aeb3;
 
 }
 
-.card{
+.banner img {
 
-border:2px solid #8fd9db;
-
-padding:10px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-cursor:pointer;
-
-background:white;
-
-transition:.2s;
+    width: 100%;
+    padding: 15px;
 
 }
 
-.card:hover{
+.categoria {
 
-transform:scale(1.05);
-
-}
-
-.card img{
-
-width:100%;
-height:90px;
-object-fit:contain;
+    padding: 15px;
 
 }
 
-nav{
+.categoria h2 {
 
-position:sticky;
-bottom:0;
-
-background:#bdeeee;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:18px;
-
-margin-top:20px;
+    color: #248d91;
+    margin-bottom: 15px;
 
 }
 
-nav i{
+.grid {
 
-font-size:28px;
-color:#2aaeb2;
+    display: grid;
 
-}
+    grid-template-columns: repeat(3, 1fr);
 
-.ativo{
-
-background:white;
-
-padding:12px;
-
-border-radius:50%;
+    gap: 10px;
 
 }
 
-.logo{
+.card {
 
-    width:170px;
-    height:auto;
+    border: 2px solid #8fd9db;
+
+    padding: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    background: white;
+
+    transition: .2s;
+
+}
+
+.card:hover {
+
+    transform: scale(1.05);
+
+}
+
+.card img {
+
+    width: 100%;
+    height: 90px;
+    object-fit: contain;
+
+}
+
+nav {
+
+    position: sticky;
+    bottom: 0;
+
+    background: #bdeeee;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    padding: 18px;
+
+    margin-top: 20px;
+
+}
+
+nav i {
+
+    font-size: 28px;
+    color: #2aaeb2;
+
+}
+
+.ativo {
+
+    background: white;
+
+    padding: 12px;
+
+    border-radius: 50%;
+
+}
+
+.logo {
+
+    width: 170px;
+    height: auto;
 
 }
