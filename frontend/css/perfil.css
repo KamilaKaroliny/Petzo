@@ -66,7 +66,7 @@ body{
 
 .perfil{
   position:absolute;
-  top:100px; /* antes estava 120px */
+  top:100px;
   left:50%;
   transform:translateX(-50%);
   z-index:10;
@@ -142,4 +142,96 @@ body{
   font-size:15px;
   font-weight:bold;
   cursor:pointer;
+}
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 768px){
+
+    body{
+        display:flex;
+        justify-content:center;
+        align-items:flex-start;
+        padding:50px;
+        background:#72C8C5;
+    }
+
+    .usuario{
+        width:900px;
+        height:auto;
+        min-height:900px;
+        background:white;
+        border-radius:30px;
+        overflow:hidden;
+        box-shadow:0 15px 40px rgba(0,0,0,.15);
+    }
+
+    .topo{
+        height:230px;
+    }
+
+    .logo{
+        width:170px;
+    }
+
+    .btn-voltar{
+        width:48px;
+        height:48px;
+        font-size:18px;
+    }
+
+    .perfil{
+        top:135px;
+    }
+
+    .foto{
+        width:160px;
+        height:160px;
+    }
+
+    .foto i{
+        font-size:80px;
+    }
+
+    .camera{
+        width:42px;
+        height:42px;
+        font-size:18px;
+    }
+
+    .formulario{
+        position:relative;
+        width:100%;
+        height:auto;
+        min-height:700px;
+        margin-top:80px;
+        padding:130px 70px 50px;
+        border-radius:40px 40px 0 0;
+    }
+
+    .campo{
+        margin-bottom:22px;
+    }
+
+    .campo label{
+        font-size:16px;
+        margin-bottom:8px;
+    }
+
+    .campo input{
+        height:58px;
+        font-size:17px;
+        border-radius:12px;
+        padding:0 18px;
+    }
+
+    .salvar{
+        height:60px;
+        font-size:18px;
+        border-radius:12px;
+        margin-top:20px;
+    }
+
 }
