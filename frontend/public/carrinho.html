@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Petzo - Carrinho</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/carrinho.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <app-header></app-header>
+
+    <main class="carrinho-container">
+
+        <!-- PEDIDOS -->
+        <section class="pedidos">
+
+            <h2>Pedidos em Andamento (1)</h2>
+
+            <div class="pedido-card">
+
+                <h3>Pedido Número 01 • Total: R$379,97</h3>
+
+                <p>Chega Hoje, 12/04/2026</p>
+
+            </div>
+
+        </section>
+
+        <!-- CARRINHO -->
+        <section class="meu-carrinho">
+
+            <h2>Meu Carrinho (<span id="quantidade-itens">3</span>)</h2>
+
+            <!-- Os produtos serão adicionados pelo JS -->
+            <div id="lista-carrinho"></div>
+
+        </section>
+
+    </main>
+
+    <!-- RESUMO -->
+    <section class="resumo-pedido">
+
+        <div class="subtotal">
+
+            <span>Subtotal</span>
+
+            <strong id="subtotal">
+                R$ 0,00
+            </strong>
+
+        </div>
+
+        <p>
+            A empresa confirmará seu pedido e o valor total,
+            incluindo possíveis impostos, taxas e descontos.
+        </p>
+
+        <button id="btn-revisar">
+            Revisar Pedido
+        </button>
+
+    </section>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+
+    <!-- Dados -->
+    <script src="../data/produtos.js"></script>
+
+    <!-- Componentes -->
+    <script type="module" src="../src/components/index.js"></script>
+
+    <!-- Página -->
+    <script src="../js/carrinho.js"></script>
+
+</body>
+
+</html>
