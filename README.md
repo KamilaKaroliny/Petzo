@@ -1,10 +1,24 @@
-## Sobre a Petzo
+<p align="center">
+  <img src="frontend/assets/images/logo.png" width="220">
+</p>
 
-O presente projeto foi desenvolvido como atividade da disciplina Ferramentas Web e UX, com o objetivo de aplicar conceitos de experiência do usuário (UX), design de interface (UI), prototipação e desenvolvimento de soluções digitais centradas no usuário.
+<h1 align="center">🐾 Petzo</h1>
 
-A proposta consiste na criação de uma interface moderna, intuitiva e acessível, buscando proporcionar uma experiência agradável durante a navegação e utilização do sistema.
+<p align="center">
+  Plataforma E-commerce para Produtos Pet
+  <br>
+  Projeto desenvolvido para a disciplina de Ferramentas Web e UX.
+</p>
 
-# Objetivos
+## 🐾 Sobre a Petzo
+
+A Petzo é um protótipo de e-commerce desenvolvido para a disciplina de Ferramentas Web e UX da Católica de Santa Catarina.
+
+O projeto teve como objetivo aplicar conceitos de UX/UI, acessibilidade e desenvolvimento Front-end na criação de uma plataforma moderna, intuitiva e responsiva para comercialização de produtos destinados a animais de estimação.
+
+Durante o desenvolvimento foram utilizados princípios de Design Centrado no Usuário (DCU), buscando oferecer uma experiência simples, agradável e eficiente.
+
+## 🎯 Objetivos
 
 **Objetivo Geral**
 
@@ -12,13 +26,12 @@ Desenvolver um protótipo funcional que atenda às necessidades dos usuários po
 
 **Objetivos Específicos**
 
-- Aplicar conceitos de UX Design;;
-- Desenvolver wireframes e protótipos;;
-- Definir fluxo de navegação;
+- Desenvolver uma plataforma intuitiva;
+- Aplicar princípios de UX/UI;
 - Criar interfaces responsivas;
-- Melhorar a experiência do usuário;
-- Aplicar princípios de acessibilidade;
-- Validar a proposta de solução.
+- Garantir boa experiência ao usuário;
+- Desenvolver componentes reutilizáveis;
+- Aplicar conceitos vistos em sala de aula.
 
 # Público Alvo
 
