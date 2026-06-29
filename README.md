@@ -2,8 +2,6 @@
   <img src="frontend/assets/images/logo.png" width="220">
 </p>
 
-<h1 align="center">🐾 Petzo</h1>
-
 <p align="center">
   Plataforma E-commerce para Produtos Pet
   <br>
