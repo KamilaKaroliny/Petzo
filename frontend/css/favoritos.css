@@ -1,0 +1,70 @@
+body{
+    background:#F5F5F5;
+}
+
+.favoritos{
+    width:90%;
+    margin:auto;
+    padding-top:20px;
+}
+
+.favoritos h2{
+    text-align:center;
+    color:#4B8D8B;
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+.produtos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#EDF7F7;
+    border-radius:12px;
+    padding:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:scale(1.02);
+    transition:.2s;
+}
+
+.imagem-produto{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    background:white;
+    border:2px solid #8BD3D0;
+    border-radius:10px;
+}
+
+.acoes{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.acoes button{
+    border:none;
+    background:none;
+    color:#61B5B2;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.acoes button:hover{
+    transform:scale(1.15);
+}
+
+.vazio{
+    text-align:center;
+    color:#777;
+    margin-top:80px;
+}
