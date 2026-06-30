@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
 
     <link rel="stylesheet" href="../css/global.css">
@@ -10,33 +12,37 @@
 
     <script defer src="../js/login.js"></script>
 </head>
+
 <body>
 
 <div class="container">
 
     <div class="logo-area">
-        <img src="../assets/images/logo.png" alt="Petzo">
+
+        <img
+            src="../assets/images/logo.png" alt="Petzo" class="logo-mobile">
+
+        <img
+            src="../assets/images/dog.png" alt="Cachorro" class="dog">
+
     </div>
 
     <div class="login-card">
+
         <h2>Bem-vindo.</h2>
 
         <form id="loginForm">
 
             <label for="email">E-mail:</label>
-            <input
-                type="email" id="email" placeholder="Seu E-mail" required
-            >
+            <input type="email" id="email" placeholder="Seu E-mail" required>
 
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" placeholder="Sua Senha" required
-            >
+            <input type="password" id="senha" placeholder="Sua Senha" required>
 
             <a href="#">Esqueceu sua senha?</a>
 
-            <button type="submit">
-                Entrar
-            </button>
+            <button type="submit">Entrar</button>
+
         </form>
 
         <div class="separador">
@@ -44,22 +50,40 @@
         </div>
 
         <button class="google-btn">
-            <img src="../assets/icons/google.png" alt="Google" class="google-icon">
+
+            <img src="../assets/icons/google.png" alt="Google">
+
             Entrar com Google
+
         </button>
 
         <button class="apple-btn">
-            <img src="../assets/icons/apple.png" alt="Apple" class="apple-icon">
+
+            <img src="../assets/icons/apple.png" alt="Apple">
+
             Entrar com Apple
+
         </button>
 
         <p>
+
             Não possui uma conta?
-            <a href="cadastro.html">Criar</a>
+
+            <a href="cadastro.html">
+                Criar
+            </a>
+
         </p>
+
     </div>
 
 </div>
 
+<img
+    src="../assets/images/logo.png"
+    alt="Petzo"
+    class="logo-desktop">
+
 </body>
+
 </html>
