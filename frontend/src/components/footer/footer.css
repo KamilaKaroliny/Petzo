@@ -11,18 +11,14 @@ footer{
     z-index:1;
 }
 
-/* Todos os botões */
 footer a{
     width:55px;
     height:55px;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     border-radius:50%;
     text-decoration:none;
-
     transition:transform .25s ease;
 }
 
