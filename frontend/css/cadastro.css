@@ -1,42 +1,71 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
 body{
     background:#9EDFD9;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
 }
 
 .container{
-    width:390px;
-    height:917px;
+    width:410px;
+    min-height:800px;
 }
 
 .logo-area{
-    text-align:center;
-    margin-bottom:40px;
-    margin-top:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 0;
 }
 
-.logo-area img{
-    width:200px;
+.logo-mobile{
+    width:260px;
 }
+
+.dog,
+.logo-desktop{
+    display:none;
+}
+
 .cadastro-card{
-    background:white;
-    border-radius:25px 25px 0 0;
-    padding:30px 30px 70px 30px; 
-    margin-top:50px;
+    background:#FFF;
+    border-radius:30px 30px 0 0;
+    padding:35px;
 }
 
 .cadastro-card h2{
     text-align:center;
     color:#2A7F7F;
-    margin-bottom:25px;
+    font-size:28px;
+    margin-bottom:30px;
 }
 
-.cadastro-card form{
+form{
     display:flex;
     flex-direction:column;
-    gap:5px;
+}
+
+label{
+    color:#2A7F7F;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+input{
+    width:100%;
+    height:45px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#F3F3F3;
+    margin-bottom:14px;
 }
 
 .checkbox{
@@ -44,68 +73,216 @@ body{
     align-items:center;
     gap:10px;
     font-size:14px;
+    margin:8px 0 18px;
 }
 
-input{
-    padding:12px;
-    border:none;
-    background:#f2f2f2;
-    border-radius:6px;
-}
-
-
-label{
-    color:#2A7F7F;
-    font-size:14px;
-    font-weight: bold;
-}
-
-a{
-    text-decoration:none;
-    color:#2A7F7F;
-    font-weight: bold;
-    text-align:right;
-    margin-bottom:15px;
-}
-
-p{
-    text-align:center;
-    color:#2A7F7F;  
+.checkbox input{
+    width:18px;
+    height:18px;
+    margin:0;
 }
 
 button{
-    height:45px;
     border:none;
-    border-radius:5px;
     cursor:pointer;
+    border-radius:6px;
 }
 
 button[type="submit"]{
-    background:#4CC7C0;
-    color:white;
+    height:46px;
+    background:#57C7C5;
+    color:#FFF;
+    font-size:17px;
 }
 
 .separador{
+    margin:18px 0;
     text-align:center;
-    margin:15px 0;
-    font-weight: bold;
     color:#2A7F7F;
+    font-weight:bold;
 }
 
 .google-btn,
 .apple-btn{
     width:100%;
-    margin-bottom:10px;
-    background:white;
+    height:46px;
+    background:#FFF;
     border:1px solid #2A7F7F;
-    color:#2A7F7F;
-    align-items:center;
     display:flex;
     justify-content:center;
+    align-items:center;
+    gap:10px;
+    color:#2A7F7F;
+    margin-bottom:10px;
 }
 
 .google-btn img,
 .apple-btn img{
     width:20px;
-    margin-right:10px;
+}
+
+p{
+    text-align:center;
+    color:#2A7F7F;
+    margin-top:18px;
+}
+
+p a{
+    color:#2A7F7F;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+@media (min-width:1024px){
+
+    body{
+        background:linear-gradient(
+            to bottom,
+            #6BC6C1 0%,
+            #6BC6C1 44%,
+            #1E6966 44%,
+            #1E6966 100%
+        );
+    }
+
+    .container{
+        width:1120px;
+        height:640px;
+        display:grid;
+        grid-template-columns:38% 62%;
+        overflow:visible;
+        position:relative;
+        border-radius:12px;
+        box-shadow:0 12px 35px rgba(0,0,0,.22);
+    }
+
+    .logo-area{
+        background:#2D7C78;
+        position:relative;
+        overflow:visible;
+    }
+
+    .quadrado{
+        position:absolute;
+        width:95px;
+        height:95px;
+        border:1px solid rgba(255,255,255,.35);
+        z-index:2;
+    }
+
+    .q1{
+        top:0;
+        right:95px;
+    }
+
+    .q2{
+        top:0;
+        right:-1px;
+    }
+
+    .q3{
+        top:95px;
+        right:-1px;
+    }
+
+    .logo-mobile{
+        display:none;
+    }
+
+    .dog{
+        display:block;
+        position:absolute;
+        width:165%;
+        max-width:none;
+        left:-120px;
+        bottom:-1px;
+        z-index:1000;
+        pointer-events:none;
+    }
+
+    .cadastro-card{
+        position:relative;
+        z-index:2;
+        border-radius:0;
+        background:#FFF;
+        padding:55px 45px;
+    }
+
+    .cadastro-card h2{
+        font-size:62px;
+        color:#3B8080;
+        text-align:center;
+        margin-bottom:10px;
+    }
+
+    .cadastro-card h2::after{
+        content:"";
+        display:block;
+        width:90px;
+        height:4px;
+        background:#3B8080;
+        margin:12px auto 0;
+    }
+
+    label{
+        font-size:15px;
+    }
+
+    input{
+        height:38px;
+        margin-bottom:16px;
+    }
+
+    .checkbox{
+        font-size:14px;
+        margin:8px 0 16px;
+    }
+
+    button[type="submit"]{
+        width:100%;
+        height:48px;
+        font-size:18px;
+        margin-top:5px;
+    }
+
+    .separador{
+        margin:14px 0;
+    }
+
+    .google-btn,
+    .apple-btn{
+        width:49%;
+        height:42px;
+        display:inline-flex;
+        font-size:15px;
+    }
+
+    .google-btn{
+        margin-right:2%;
+    }
+
+    .google-btn img,
+    .apple-btn img{
+        width:22px;
+    }
+
+    .social-login{
+        display:flex;
+        justify-content:space-between;
+        gap:10px;
+    }
+
+    p{
+        margin-top:25px;
+    }
+
+    .logo-desktop{
+        display:block;
+        position:fixed;
+        bottom:15px;
+        left:50%;
+        transform:translateX(-50%);
+        width:140px;
+        opacity:.75;
+    }
 }
