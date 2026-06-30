@@ -1,50 +1,58 @@
-.banner{
-    width:100%;
-    margin:20px 0;
+/* Container principal do banner */
+.banner {
+    width: 100%; /* ocupa toda a largura da tela */
+    margin: 20px 0; /* espaçamento acima e abaixo */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* centraliza o carrossel */
 }
 
+/* Área do carrossel */
 .carrossel {
-    width: 90%;        /* reduz o comprimento */
-    max-width: 1100px; /* evita ficar gigante no desktop */
-    overflow: hidden;
-    border-radius: 20px;
-    position: relative;
+    width: 90%;        /* ocupa 90% da tela */
+    max-width: 1100px; /* limita o tamanho no desktop */
+    overflow: hidden;  /* esconde os slides fora da área visível */
+    border-radius: 20px; /* bordas arredondadas */
+    position: relative; /* permite posicionar botões dentro dele */
 }
 
-.slides{
-    display:flex;
-    transition:transform .5s ease;
+/* Container dos slides */
+.slides {
+    display: flex; /* coloca os slides lado a lado */
+    transition: transform .5s ease; /* anima a troca de slide */
 }
 
-.slides a{
-    min-width:100%;
+/* Cada slide (link clicável) */
+.slides a {
+    min-width: 100%; /* cada slide ocupa 100% do carrossel */
 }
 
-.slides img{
-    width:100%;
-    display:block;
-    border-radius:20px;
+/* Imagem do banner */
+.slides img {
+    width: 100%; /* ocupa toda largura do slide */
+    display: block; /* remove espaços indesejados abaixo da imagem */
+    border-radius: 20px; /* mantém o estilo arredondado */
 }
 
+/* Botões de navegação (anterior e próximo) */
 .anterior,
-.proximo{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:40px;
-    height:40px;
-    border:none;
-    border-radius:50%;
-    background:rgba(255,255,255,.8);
-    cursor:pointer;
+.proximo {
+    position: absolute; /* posiciona dentro do carrossel */
+    top: 50%; /* centraliza verticalmente */
+    transform: translateY(-50%); /* ajuste fino de centralização */
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%; /* botão circular */
+    background: rgba(255, 255, 255, .8); /* fundo semi-transparente */
+    cursor: pointer; /* cursor de clique */
 }
 
-.anterior{
-    left:10px;
+/* Botão da esquerda */
+.anterior {
+    left: 10px;
 }
 
-.proximo{
-    right:10px;
+/* Botão da direita */
+.proximo {
+    right: 10px;
 }
