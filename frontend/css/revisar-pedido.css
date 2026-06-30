@@ -15,10 +15,10 @@ body {
 
 .revisao-container {
     max-width: 900px;
-    margin: 30px auto 170px;
+    margin: 30px auto;
     background: #fff;
     border-radius: 35px 35px 0 0;
-    padding: 35px 30px;
+    padding: 35px 30px 120px; /* espaço pro botão */
     box-shadow: 0 -5px 15px rgba(0, 0, 0, .08);
 }
 
@@ -105,55 +105,39 @@ body {
 }
 
 /* ==========================================
-   BOTÃO FINALIZAR
+   BOTÃO FINALIZAR (PADRÃO MOBILE/TODAS TELAS)
 ========================================== */
 
-.rodape-pedido{
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:center;
-
-    padding:30px 20px 40px;
-
-    background:transparent;
-
-    box-sizing:border-box;
-
+.rodape-pedido {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 20px;
+    background: #fff;
+    border-top: 1px solid #ececec;
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
-#btn-finalizar{
-
-    width:100%;
-
-    max-width:700px;
-
-    height:56px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#46b8b8;
-
-    color:#fff;
-
-    font-size:1.05rem;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s;
-
+#btn-finalizar {
+    width: 100%;
+    max-width: 700px;
+    height: 56px;
+    border: none;
+    border-radius: 12px;
+    background: #46b8b8;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
 }
 
-#btn-finalizar:hover{
-
-    background:#2d7f80;
-
+#btn-finalizar:hover {
+    background: #2d7f80;
 }
 
 /* ==========================================
@@ -163,8 +147,8 @@ body {
 @media (max-width: 768px) {
 
     .revisao-container {
-        margin: 15px 12px 140px;
-        padding: 25px 18px;
+        padding: 25px 18px 110px;
+        margin: 15px 12px;
         border-radius: 25px 25px 0 0;
     }
 
@@ -199,23 +183,17 @@ body {
 }
 
 /* ==========================================
-   RESPONSIVO MOBILE PEQUENO
+   RESPONSIVO MOBILE
 ========================================== */
 
 @media (max-width: 480px) {
 
     .revisao-container {
-        margin: 10px 10px 130px;
-        padding: 20px 15px;
+        padding: 20px 15px 100px;
     }
 
     .titulo h1 {
         font-size: 1.5rem;
-    }
-
-    .card-informacao {
-        flex-direction: row; /* mantém alinhado, mas mais compacto */
-        gap: 12px;
     }
 
     .icone i {
@@ -242,95 +220,4 @@ body {
         height: 48px;
         font-size: .95rem;
     }
-}
-
-/* ==========================================
-   DESKTOP
-========================================== */
-
-@media (min-width: 900px) {
-
-    .revisao-container{
-        max-width:700px;
-        margin:35px auto 40px;
-        padding:30px 35px 40px;
-        border-radius:24px;
-        box-shadow:0 8px 25px rgba(0,0,0,.08);
-    }
-
-    .titulo{
-        margin-bottom:25px;
-    }
-
-    .titulo h1{
-        font-size:1.8rem;
-    }
-
-    .card-informacao{
-        gap:16px;
-        padding:14px 0;
-        margin-bottom:0;
-        border-bottom:1px solid #f0f0f0;
-    }
-
-    .card-informacao:last-child{
-        border-bottom:none;
-    }
-
-    .icone{
-        width:42px;
-    }
-
-    .icone i{
-        font-size:1.8rem;
-    }
-
-    .texto h3{
-        font-size:1.05rem;
-    }
-
-    .texto p{
-        font-size:.9rem;
-    }
-
-    .resumo{
-        margin-top:28px;
-    }
-
-    .linha{
-        font-size:.98rem;
-        margin-bottom:12px;
-    }
-
-    .total{
-        font-size:1.2rem;
-    }
-
-    /* Botão dentro da página */
-
-.rodape-pedido {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 15px 20px;
-    background: #fff;
-    border-top: 1px solid #ececec;
-    z-index: 1000;
-    box-sizing: border-box;
-}
-
-    #btn-finalizar{
-
-        width:320px;
-        height:54px;
-
-        border-radius:10px;
-
-        font-size:1rem;
-
-    }
-
 }

@@ -26,70 +26,47 @@
     <main class="revisao-container">
 
         <section class="titulo">
-
             <h1>Revise seu Pedido</h1>
-
         </section>
 
         <!-- ENTREGA -->
-
         <section class="card-informacao">
-
             <div class="icone">
                 <i class="fa-solid fa-truck-fast"></i>
             </div>
-
             <div class="texto">
-
                 <h3>Entrega hoje</h3>
-
                 <p>Hoje, 40 - 50 min</p>
-
             </div>
-
         </section>
 
         <!-- ENDEREÇO -->
-
         <section class="card-informacao">
-
             <div class="icone">
                 <i class="fa-solid fa-location-dot"></i>
             </div>
-
             <div class="texto">
-
                 <h3>Rua teste, 123</h3>
-
                 <p>Bairro</p>
-
             </div>
-
         </section>
 
         <!-- PAGAMENTO -->
-
         <section class="card-informacao">
-
             <div class="icone">
                 <i class="fa-solid fa-wallet"></i>
             </div>
-
             <div class="texto">
-
                 <h3>Pagamento pelo app</h3>
-
-                <p>Apple Pay</p>
-
+                <p>Pix</p>
             </div>
-
         </section>
 
+        <!-- ITENS -->
         <div class="card-informacao">
             <div class="icone">
                 <i class="fa-solid fa-box-open"></i>
             </div>
-        
             <div class="texto">
                 <h3>Itens do Pedido</h3>
                 <p>3 produtos selecionados</p>
@@ -97,39 +74,23 @@
         </div>
 
         <!-- RESUMO -->
-
         <section class="resumo">
 
             <h2>Resumo</h2>
 
             <div class="linha">
-
                 <span>Subtotal</span>
-
-                <span id="subtotal">
-                    R$ 0,00
-                </span>
-
+                <span id="subtotal">R$ 0,00</span>
             </div>
 
             <div class="linha">
-
                 <span>Entrega</span>
-
-                <span id="frete">
-                    Grátis
-                </span>
-
+                <span id="frete">Grátis</span>
             </div>
 
             <div class="linha total">
-
                 <strong>Total</strong>
-
-                <strong id="total">
-                    R$ 0,00
-                </strong>
-
+                <strong id="total">R$ 0,00</strong>
             </div>
 
         </section>
@@ -138,7 +99,7 @@
             <span>Forma de pagamento</span>
             <strong>Pix</strong>
         </div>
-        
+
         <div class="linha">
             <span>Entrega prevista</span>
             <strong>2 a 4 dias úteis</strong>
@@ -146,30 +107,17 @@
 
     </main>
 
-    <!-- BOTÃO FIXO -->
-
+    <!-- BOTÃO -->
     <section class="rodape-pedido">
-
-        <button id="btn-finalizar">
-            Finalizar Pedido
-        </button>
-
+        <button id="btn-finalizar" type="button">Finalizar Pedido</button>
     </section>
 
     <!-- FOOTER -->
-
     <app-footer></app-footer>
 
-    <!-- Dados -->
-
+    <!-- SCRIPTS -->
     <script src="../data/produtos.js"></script>
-
-    <!-- Web Components -->
-
     <script type="module" src="../src/components/index.js"></script>
-
-    <!-- Página -->
-
     <script src="../js/revisar-pedido.js"></script>
 
 </body>

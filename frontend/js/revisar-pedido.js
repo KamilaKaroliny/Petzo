@@ -1,63 +1,59 @@
-// ==============================
-// REVISAR PEDIDO
-// ==============================
+// ===============================
+// CARREGAR VALORES DO PEDIDO
+// ===============================
 
-let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+function carregarValores() {
 
-document.addEventListener("DOMContentLoaded", () => {
+    let subtotal = parseFloat(localStorage.getItem("subtotal")) || 0;
+    let frete = 0;
+    let total = subtotal + frete;
 
-    const btnFinalizar = document.getElementById("btn-finalizar");
+    document.getElementById("subtotal").innerText = `R$ ${subtotal.toFixed(2)}`;
+    document.getElementById("total").innerText = `R$ ${total.toFixed(2)}`;
+}
 
-    if (!btnFinalizar) {
+carregarValores();
 
-        console.error("Botão btn-finalizar não encontrado.");
 
-        return;
+// ===============================
+// FINALIZAR PEDIDO
+// ===============================
 
-    }
+document.getElementById("btn-finalizar").addEventListener("click", () => {
 
-    btnFinalizar.addEventListener("click", function(event){
+    let subtotal = parseFloat(localStorage.getItem("subtotal")) || 0;
+    let frete = 0;
+    let total = subtotal + frete;
 
-        event.preventDefault();
+    // mensagem visual (toast simples)
+    const toast = document.createElement("div");
 
-        // Atualiza o carrinho antes de finalizar
-        carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    toast.innerHTML = `
+        <div style="
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2d7f80;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: bold;
+            z-index: 99999;
+            box-shadow: 0 8px 20px rgba(0,0,0,.2);
+        ">
+            Pedido realizado com sucesso! 🎉 Total: R$ ${total.toFixed(2)}
+        </div>
+    `;
 
-        if(carrinho.length === 0){
+    document.body.appendChild(toast);
 
-            mostrarToast("Seu carrinho está vazio!");
+    // limpar carrinho (opcional)
+    localStorage.removeItem("carrinho");
+    localStorage.removeItem("subtotal");
 
-            return;
-
-        }
-
-        mostrarToast("Pedido finalizado com sucesso! 🎉");
-
-        // Limpa o carrinho
-        localStorage.removeItem("carrinho");
-
-        carrinho = [];
-
-        // Atualiza outras telas caso existam
-        if(typeof renderizarCarrinho === "function"){
-
-            renderizarCarrinho();
-
-        }
-
-        if(typeof atualizarSubtotal === "function"){
-
-            atualizarSubtotal();
-
-        }
-
-        // Redireciona
-        setTimeout(function(){
-
-            window.location.href = "../pages/home.html";
-
-        },1500);
-
-    });
-
+    // redirecionar após tempo
+    setTimeout(() => {
+        window.location.href = "home.html";
+    }, 1500);
 });
