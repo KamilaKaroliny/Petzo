@@ -1,21 +1,5 @@
 // ==============================
-// CARRINHO TEMPORÁRIO
-// (Depois pode ser substituído por localStorage)
-// ==============================
-
-let carrinho = [
-    {
-        id: 1,
-        nome: "Cama PET Vintage - Bege",
-        imagem: "../assets/images/aquaticos/Alimentador Automático para Peixes.png",
-        preco: 59.99,
-        precoAntigo: 129.99,
-        quantidade: 1
-    }
-];
-
-// ==============================
-// ELEMENTOS
+// CARRINHO
 // ==============================
 
 const listaCarrinho = document.getElementById("lista-carrinho");
@@ -23,79 +7,165 @@ const subtotalElemento = document.getElementById("subtotal");
 const quantidadeItens = document.getElementById("quantidade-itens");
 
 // ==============================
-// FORMATAR MOEDA
+// CARREGAR CARRINHO
+// ==============================
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+// ==============================
+// CONVERTER PREÇO
+// ==============================
+
+function converterPreco(preco) {
+
+    if (typeof preco === "number") return preco;
+
+    return Number(
+        preco
+            .replace("R$", "")
+            .replace(/\./g, "")
+            .replace(",", ".")
+            .trim()
+    );
+
+}
+
+// ==============================
+// FORMATAR PREÇO
 // ==============================
 
 function formatarPreco(valor) {
+
     return valor.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
     });
+
 }
 
 // ==============================
-// CALCULAR SUBTOTAL
+// SALVAR
+// ==============================
+
+function salvarCarrinho() {
+
+    localStorage.setItem(
+        "carrinho",
+        JSON.stringify(carrinho)
+    );
+
+}
+
+// ==============================
+// PEGAR PRODUTO
+// ==============================
+
+function buscarProduto(id) {
+
+    return PRODUTOS.find(p => p.id == id);
+
+}
+
+// ==============================
+// SUBTOTAL
 // ==============================
 
 function atualizarSubtotal() {
 
     let subtotal = 0;
 
-    carrinho.forEach(produto => {
-        subtotal += produto.preco * produto.quantidade;
+    let totalItens = 0;
+
+    carrinho.forEach(item => {
+
+        const produto = buscarProduto(item.id);
+
+        if (!produto) return;
+
+        subtotal += converterPreco(produto.preco) * item.quantidade;
+
+        totalItens += item.quantidade;
+
     });
 
     subtotalElemento.textContent = formatarPreco(subtotal);
 
-    quantidadeItens.textContent = carrinho.length;
+    quantidadeItens.textContent = totalItens;
 
 }
 
 // ==============================
-// RENDERIZAR CARRINHO
+// RENDERIZAR
 // ==============================
 
 function renderizarCarrinho() {
 
     listaCarrinho.innerHTML = "";
 
-    carrinho.forEach(produto => {
+    if (carrinho.length == 0) {
+
+        listaCarrinho.innerHTML = `
+            <p class="carrinho-vazio">
+                Seu carrinho está vazio.
+            </p>
+        `;
+
+        atualizarSubtotal();
+
+        return;
+
+    }
+
+    carrinho.forEach(item => {
+
+        const produto = buscarProduto(item.id);
+
+        if (!produto) return;
 
         const card = document.createElement("div");
+
         card.className = "produto-carrinho";
 
         card.innerHTML = `
-    <img
-        src="${produto.imagem}"
-        class="produto-imagem"
-        alt="${produto.nome}">
 
-    <div class="produto-info">
+            <img
+                src="${produto.imagem}"
+                class="produto-imagem"
+                alt="${produto.nome}">
 
-        <h3>${produto.nome}</h3>
+            <div class="produto-info">
 
-        <div class="precos">
-            <span class="preco-antigo">
-                ${formatarPreco(produto.precoAntigo)}
-            </span>
+                <h3>${produto.nome}</h3>
 
-            <span class="preco-atual">
-                ${formatarPreco(produto.preco)}
-            </span>
-        </div>
+                <div class="precos">
 
-    </div>
+                    <span class="preco-atual">
+                        ${produto.preco}
+                    </span>
 
-    <div class="quantidade">
+                </div>
 
-        <button class="menos" data-id="${produto.id}">-</button>
+            </div>
 
-        <span>${produto.quantidade}</span>
+            <div class="quantidade">
 
-        <button class="mais" data-id="${produto.id}">+</button>
+                <button
+                    class="menos"
+                    data-id="${produto.id}">
+                    -
+                </button>
 
-    </div>
-`;
+                <span>${item.quantidade}</span>
+
+                <button
+                    class="mais"
+                    data-id="${produto.id}">
+                    +
+                </button>
+
+            </div>
+
+        `;
 
         listaCarrinho.appendChild(card);
 
@@ -108,7 +178,7 @@ function renderizarCarrinho() {
 }
 
 // ==============================
-// EVENTOS DOS BOTÕES
+// EVENTOS
 // ==============================
 
 function adicionarEventos() {
@@ -117,11 +187,15 @@ function adicionarEventos() {
 
         botao.onclick = () => {
 
-            const id = Number(botao.dataset.id);
+            const id = botao.dataset.id;
 
-            const produto = carrinho.find(p => p.id === id);
+            const item = carrinho.find(p => p.id == id);
 
-            produto.quantidade++;
+            if (!item) return;
+
+            item.quantidade++;
+
+            salvarCarrinho();
 
             renderizarCarrinho();
 
@@ -133,19 +207,23 @@ function adicionarEventos() {
 
         botao.onclick = () => {
 
-            const id = Number(botao.dataset.id);
+            const id = botao.dataset.id;
 
-            const produto = carrinho.find(p => p.id === id);
+            const item = carrinho.find(p => p.id == id);
 
-            if (produto.quantidade > 1) {
+            if (!item) return;
 
-                produto.quantidade--;
+            if (item.quantidade > 1) {
+
+                item.quantidade--;
 
             } else {
 
-                carrinho = carrinho.filter(p => p.id !== id);
+                carrinho = carrinho.filter(p => p.id != id);
 
             }
+
+            salvarCarrinho();
 
             renderizarCarrinho();
 

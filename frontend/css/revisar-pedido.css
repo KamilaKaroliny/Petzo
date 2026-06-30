@@ -105,43 +105,55 @@ body {
 }
 
 /* ==========================================
-   BOTÃO FIXO
+   BOTÃO FINALIZAR
 ========================================== */
 
-.rodape-pedido {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    background: #fff;
-    padding: 16px;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, .08);
-    z-index: 1000;
+.rodape-pedido{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:30px 20px 40px;
+
+    background:transparent;
+
+    box-sizing:border-box;
+
 }
 
-/* evita conteúdo ficar escondido atrás do botão */
-.revisao-container {
-    padding-bottom: 110px;
+#btn-finalizar{
+
+    width:100%;
+
+    max-width:700px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#46b8b8;
+
+    color:#fff;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
 }
 
-#btn-finalizar {
-    width: 100%;
-    max-width: 900px;
-    height: 55px;
-    border: none;
-    border-radius: 8px;
-    background: #46b8b8;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .25s;
-}
+#btn-finalizar:hover{
 
-#btn-finalizar:hover {
-    background: #2d7f80;
+    background:#2d7f80;
+
 }
 
 /* ==========================================
@@ -240,8 +252,8 @@ body {
 
     .revisao-container{
         max-width:700px;
-        margin:35px auto 50px;
-        padding:30px 35px;
+        margin:35px auto 40px;
+        padding:30px 35px 40px;
         border-radius:24px;
         box-shadow:0 8px 25px rgba(0,0,0,.08);
     }
@@ -294,23 +306,31 @@ body {
         font-size:1.2rem;
     }
 
-    /* botão deixa de ser fixo */
+    /* Botão dentro da página */
 
-    .rodape-pedido{
-        position:static;
-        background:transparent;
-        box-shadow:none;
-        padding:0;
-        margin-top:30px;
-        display:flex;
-        justify-content:flex-end;
-    }
+.rodape-pedido {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 20px;
+    background: #fff;
+    border-top: 1px solid #ececec;
+    z-index: 1000;
+    box-sizing: border-box;
+}
 
     #btn-finalizar{
-        width:260px;
-        height:52px;
+
+        width:320px;
+        height:54px;
+
         border-radius:10px;
+
         font-size:1rem;
+
     }
 
 }

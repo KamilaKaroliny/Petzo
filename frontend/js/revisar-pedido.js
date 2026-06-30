@@ -1,38 +1,63 @@
+// ==============================
+// REVISAR PEDIDO
+// ==============================
+
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const btnFinalizar = document.getElementById("btn-finalizar");
 
     if (!btnFinalizar) {
-        console.error("Botão btn-finalizar não encontrado");
+
+        console.error("Botão btn-finalizar não encontrado.");
+
         return;
+
     }
 
-    btnFinalizar.addEventListener("click", (event) => {
+    btnFinalizar.addEventListener("click", function(event){
+
         event.preventDefault();
 
-        if (carrinho.length === 0) {
+        // Atualiza o carrinho antes de finalizar
+        carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        if(carrinho.length === 0){
+
             mostrarToast("Seu carrinho está vazio!");
+
             return;
+
         }
 
         mostrarToast("Pedido finalizado com sucesso! 🎉");
 
+        // Limpa o carrinho
         localStorage.removeItem("carrinho");
+
         carrinho = [];
 
-        // evita crash caso essas funções não existam ainda
-        if (typeof renderizarCarrinho === "function") {
+        // Atualiza outras telas caso existam
+        if(typeof renderizarCarrinho === "function"){
+
             renderizarCarrinho();
+
         }
 
-        if (typeof atualizarTotal === "function") {
-            atualizarTotal();
+        if(typeof atualizarSubtotal === "function"){
+
+            atualizarSubtotal();
+
         }
 
-        setTimeout(() => {
-            window.location.href = "../pages/home.html"; 
-            // ⚠️ ajuste o caminho se necessário
-        }, 1500);
+        // Redireciona
+        setTimeout(function(){
+
+            window.location.href = "../pages/home.html";
+
+        },1500);
+
     });
+
 });

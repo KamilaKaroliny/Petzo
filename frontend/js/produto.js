@@ -230,15 +230,15 @@ function ativarInteracoes(produto) {
 
     if (wishlistBtn.classList.contains("active")) {
 
-        localStorage.setItem("favorito_" + produto.id, "sim");
+      localStorage.setItem("favorito_" + produto.id, "sim");
 
     } else {
 
-        localStorage.removeItem("favorito_" + produto.id);
+      localStorage.removeItem("favorito_" + produto.id);
 
     }
 
-});
+  });
 
   // ============================
   // CEP
@@ -277,29 +277,28 @@ function ativarInteracoes(produto) {
 
   btnCart.addEventListener("click", () => {
 
-    const carrinho =
+    let carrinho =
       JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    carrinho.push(produto.id);
+    const existente = carrinho.find(item => item.id === produto.id);
+
+    if (existente) {
+
+      existente.quantidade++;
+
+    } else {
+
+      carrinho.push({
+        id: produto.id,
+        quantidade: 1
+      });
+
+    }
 
     localStorage.setItem(
       "carrinho",
       JSON.stringify(carrinho)
     );
-
-    btnCart.innerHTML =
-      '<span class="cart-icon">✓</span> Adicionado!';
-
-    btnCart.classList.add("added");
-
-    setTimeout(() => {
-
-      btnCart.innerHTML =
-        '<span class="cart-icon">+</span> Adicionar ao Carrinho';
-
-      btnCart.classList.remove("added");
-
-    }, 2000);
 
   });
 
