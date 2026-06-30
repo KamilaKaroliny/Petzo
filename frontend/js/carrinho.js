@@ -73,25 +73,23 @@ function buscarProduto(id) {
 function atualizarSubtotal() {
 
     let subtotal = 0;
-
     let totalItens = 0;
 
     carrinho.forEach(item => {
 
         const produto = buscarProduto(item.id);
-
         if (!produto) return;
 
-        subtotal += converterPreco(produto.preco) * item.quantidade;
+        const quantidade = item.quantidade || 1;
+        const preco = converterPreco(produto.preco || 0);
 
-        totalItens += item.quantidade;
+        subtotal += preco * quantidade;
+        totalItens += quantidade;
 
     });
 
     subtotalElemento.textContent = formatarPreco(subtotal);
-
     quantidadeItens.textContent = totalItens;
-
 }
 
 // ==============================

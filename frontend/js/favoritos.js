@@ -31,12 +31,12 @@ function carregarFavoritos() {
         card.className = "card";
 
         // Quando clicar no card (menos nos botões), abre a página do produto
-        card.onclick = function(e){
+        card.onclick = function (e) {
 
-            if(
+            if (
                 e.target.closest(".favorito") ||
                 e.target.closest(".carrinho")
-            ){
+            ) {
                 return;
             }
 
@@ -66,7 +66,7 @@ function carregarFavoritos() {
         `;
 
         // botão remover favorito
-        card.querySelector(".favorito").onclick = function(e){
+        card.querySelector(".favorito").onclick = function (e) {
 
             e.stopPropagation();
 
@@ -77,19 +77,25 @@ function carregarFavoritos() {
         };
 
         // botão carrinho
-        card.querySelector(".carrinho").onclick = function(e){
+        card.querySelector(".carrinho").onclick = function (e) {
 
             e.stopPropagation();
 
-            const carrinho =
-                JSON.parse(localStorage.getItem("carrinho")) || [];
+            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-            carrinho.push(produto.id);
+            // verifica se já existe o produto
+            const existe = carrinho.find(item => item.id === produto.id);
 
-            localStorage.setItem(
-                "carrinho",
-                JSON.stringify(carrinho)
-            );
+            if (existe) {
+                existe.quantidade += 1;
+            } else {
+                carrinho.push({
+                    id: produto.id,
+                    quantidade: 1
+                });
+            }
+
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
             alert("Produto adicionado ao carrinho!");
 
