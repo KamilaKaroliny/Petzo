@@ -7,39 +7,47 @@
 
     <title>Petzo - Home</title>
 
-    <!-- CSS GLOBAL -->
+    <!-- CSS global do projeto (reset, padrões gerais) -->
     <link rel="stylesheet" href="../css/global.css">
+
+    <!-- CSS específico da página home -->
     <link rel="stylesheet" href="../css/home.css">
 
-    <!-- Font Awesome -->
+    <!-- Ícones Font Awesome -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
-    <!-- COMPONENTES -->
+
+    <!-- HEADER (Web Component reutilizável) -->
     <app-header></app-header>
+
+    <!-- MENU / SEÇÕES (ex: categorias, lateral, etc) -->
     <app-secao></app-secao>
+
+    <!-- CARROSSEL DE BANNERS -->
     <app-banner></app-banner>
 
     <main>
 
-        <!-- PRODUTOS / CATEGORIAS -->
+        <!-- Área onde as categorias e produtos serão inseridos dinamicamente pelo JS -->
         <section id="categorias"></section>
 
     </main>
 
+    <!-- FOOTER (Web Component reutilizável) -->
     <app-footer></app-footer>
 
-    <!-- SCRIPTS -->
+    <!-- ===================== SCRIPTS ===================== -->
 
-    <!-- dados dos produtos -->
+    <!-- Base de dados dos produtos (array PRODUTOS) -->
     <script src="../data/produtos.js"></script>
 
-    <!-- registra os Web Components -->
+    <!-- Registro dos Web Components (header, footer, banner, secao) -->
     <script type="module" src="../src/components/index.js"></script>
 
-    <!-- lógica da home -->
+    <!-- Lógica dinâmica da home (montagem de categorias + busca) -->
     <script src="../js/home.js"></script>
 
 </body>
