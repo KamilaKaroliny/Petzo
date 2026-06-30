@@ -1,73 +1,84 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+/* Reset global básico para evitar diferenças entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* facilita controle de tamanhos */
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
-    background:#bdeeee;
-    padding:20px;
+/* Cabeçalho principal */
+header {
+    background: #bdeeee; /* cor de fundo do header */
+    padding: 20px;
 }
 
-.topo{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+/* Linha superior do header (menu, logo, perfil) */
+.topo {
+    display: flex;
+    justify-content: space-between; /* separa os elementos */
+    align-items: center; /* centraliza verticalmente */
 }
 
-.btn-menu{
-    border:none;
-    background:none;
-    cursor:pointer;
-    width:40px;
-    height:40px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+/* Botão do menu (hambúrguer) */
+.btn-menu {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn-menu i{
-    font-size:30px;
-    color:#24aeb3;
+/* Ícone do menu */
+.btn-menu i {
+    font-size: 30px;
+    color: #24aeb3;
 }
 
-.logo{
-    width:170px;
-    height:auto;
+/* Logo central */
+.logo {
+    width: 170px;
+    height: auto; /* mantém proporção */
 }
 
-.perfil{
-    width:40px;
-    height:40px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
+/* Ícone de perfil */
+.perfil {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* remove sublinhado do link */
 }
 
-.perfil i{
-    font-size:30px;
-    color:#24aeb3;
+/* Ícone do perfil */
+.perfil i {
+    font-size: 30px;
+    color: #24aeb3;
 }
 
-.pesquisa{
-    margin-top:20px;
-    position:relative;
+/* Área de busca */
+.pesquisa {
+    margin-top: 20px;
+    position: relative; /* permite posicionar o ícone dentro do input */
 }
 
-.pesquisa input{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:30px;
-    box-shadow:0 3px 10px rgba(0,0,0,.2);
+/* Campo de input */
+.pesquisa input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px; /* formato arredondado */
+    box-shadow: 0 3px 10px rgba(0,0,0,.2); /* leve sombra */
 }
 
-.pesquisa i{
-    position:absolute;
-    right:18px;
-    top:15px;
-    font-size:20px;
-    color:#24aeb3;
+/* Ícone da lupa dentro do input */
+.pesquisa i {
+    position: absolute;
+    right: 18px;
+    top: 15px;
+    font-size: 20px;
+    color: #24aeb3;
 }
